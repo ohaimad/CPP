@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 12:04:39 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/03 15:56:33 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/11/03 22:24:18 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,6 +184,11 @@ int main(int ac, char **av)
         {
             int index;
             int contact = 0;
+            if(Adding.contacts[0].getFisrtName() == "")
+            {
+                std::cout << "use ADD first !" << std::endl;
+                continue;
+            }
             for (int a = 0; a < i; a++)
             {
                 std::cout << "index : ";
@@ -198,7 +203,7 @@ int main(int ac, char **av)
                 }
                 else
                     std::cout << std::setw(10) << Adding.contacts[a].getFisrtName() << "|";
-    
+
                 if(Adding.contacts[a].getLastName().length() > 10)
                 {
                     std::string word = "";
@@ -209,7 +214,7 @@ int main(int ac, char **av)
                 }
                 else
                     std::cout << std::setw(10) << Adding.contacts[a].getLastName() << "|";
-    
+
                 if(Adding.contacts[a].getNickName().length() > 10)
                 {
                     std::string word = "";
@@ -222,6 +227,8 @@ int main(int ac, char **av)
                     std::cout << std::setw(10) << Adding.contacts[a].getNickName() << "|" << std::endl;
                 contact = a;
             }
+            if(!contact)
+                contact = 1;
             std::cout << "set your index contact : ";
             getline(std::cin, command);
             if(std::cin.eof())
@@ -231,20 +238,20 @@ int main(int ac, char **av)
             if(index > 0 && index <= contact)
             {
                 std::cout << "first name : ";
-                std::cout << Adding.contacts[index].getFisrtName() << std::endl;;
+                std::cout << Adding.contacts[index - 1].getFisrtName() << std::endl;;
                 std::cout << "last name : ";
-                std::cout << Adding.contacts[index].getLastName() << std::endl;;
+                std::cout << Adding.contacts[index - 1].getLastName() << std::endl;;
                 std::cout << "nickname : ";
-                std::cout << Adding.contacts[index].getNickName() << std::endl;;
+                std::cout << Adding.contacts[index - 1].getNickName() << std::endl;;
                 std::cout << "phone number : ";
-                std::cout << Adding.contacts[index].getPhoneNumber() << std::endl;;
+                std::cout << Adding.contacts[index - 1].getPhoneNumber() << std::endl;;
                 std::cout << "darkest secret : ";
-                std::cout << Adding.contacts[index].getDarkestSecret() << std::endl;
+                std::cout << Adding.contacts[index - 1].getDarkestSecret() << std::endl;
             }
             else
                 std::cout << "wrong index" << std::endl;
         }
-        else if(command == "EXIT")
+        else if (command == "EXIT")
             exit(0);
         else
             std::cout << "invalid string !" << std::endl;
