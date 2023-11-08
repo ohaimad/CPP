@@ -6,12 +6,12 @@
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 12:29:48 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/01 19:33:59 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/11/07 17:56:02 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HP
-#define CONTACT_HP
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 #include<iostream>
 #include<fstream>
 #include<sstream>
@@ -31,14 +31,11 @@ class Contact
         void    setNicktName(std::string str);
         void    setphonenumber(std::string str);
         void    setdarkestsecret(std::string str);
-        // void    setindex(std::string str);
         std::string getFisrtName();
         std::string getLastName();
         std::string getNickName();
         std::string getPhoneNumber();
         std::string getDarkestSecret();
-        // std::string getindex();
-    
 };
 
 #endif

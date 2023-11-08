@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/29 12:28:22 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/05 19:51:37 by ohaimad          ###   ########.fr       */
+/*   Created: 2023/11/07 18:08:53 by ohaimad           #+#    #+#             */
+/*   Updated: 2023/11/08 22:16:29 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
-#include<iostream>
-#include<fstream>
-#include<sstream>
-#include<string>
-#include "Contact.hpp"
+#include"Zombie.hpp"
 
-class PhoneBook
+int main(int ac, char **av)
 {
-private: 
-public: int i;
-    Contact contacts[8];
-};
-#endif
+    (void)av;
+    (void)ac;
+    Zombie s("Foo");
+    s.announce();
+    Zombie *n_zombie = newZombie("NEW");
+    n_zombie->announce();
+    randomChump("RANDOM");
+}

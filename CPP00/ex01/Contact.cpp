@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 21:03:41 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/01 19:33:53 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/11/06 17:56:15 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,6 @@ void    Contact::setdarkestsecret(std::string str)
     this->darkest_secret = str;
 }
 
-// void    Contact::setindex(std::string str)
-// {
-//     this->set_index = str;
-// }
-
 std::string Contact::getFisrtName()
 {
     return this->first_name;
@@ -66,8 +61,3 @@ std::string Contact::getDarkestSecret()
 {
     return this->darkest_secret;
 }
-
-// std::string Contact::getindex()
-// {
-//     return this->darkest_secret;
-// }

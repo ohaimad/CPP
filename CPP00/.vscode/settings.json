@@ -61,8 +61,6 @@
         "typeinfo": "cpp",
         "unordered_map": "cpp",
         "utility": "cpp",
-        "vector": "cpp",
-        "complex": "cpp",
-        "optional": "cpp"
+        "vector": "cpp"
     }
 }

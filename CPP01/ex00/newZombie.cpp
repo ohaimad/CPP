@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/29 12:28:22 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/05 19:51:37 by ohaimad          ###   ########.fr       */
+/*   Created: 2023/11/07 18:09:56 by ohaimad           #+#    #+#             */
+/*   Updated: 2023/11/08 22:05:05 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
-#include<iostream>
-#include<fstream>
-#include<sstream>
-#include<string>
-#include "Contact.hpp"
+#include "Zombie.hpp"
 
-class PhoneBook
+Zombie* newZombie( std::string name)
 {
-private: 
-public: int i;
-    Contact contacts[8];
-};
-#endif
+    return(new Zombie(name));
+}
