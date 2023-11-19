@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 21:03:41 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/06 17:56:15 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/11/12 19:59:55 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,50 @@
 
 void    Contact::setFirstName(std::string str)
 {
-    this->first_name = str;
+    first_name = str;
 }
 
 void    Contact::setLastName(std::string str)
 {
-    this->last_name = str;
+    last_name = str;
 }
 
 void    Contact::setNicktName(std::string str)
 {
-    this->nick_name = str;
+    nick_name = str;
 }
 
 void    Contact::setphonenumber(std::string str)
 {
-    this->phone_number = str;
+    phone_number = str;
 }
 
 void    Contact::setdarkestsecret(std::string str)
 {
-    this->darkest_secret = str;
+    darkest_secret = str;
 }
 
 std::string Contact::getFisrtName()
 {
-    return this->first_name;
+    return first_name;
 }
 
 std::string Contact::getLastName()
 {
-    return this->last_name;
+    return last_name;
 }
 
 std::string Contact::getNickName()
 {
-    return this->nick_name;
+    return nick_name;
 }
 
 std::string Contact::getPhoneNumber()
 {
-    return this->phone_number;
+    return phone_number;
 }
 
 std::string Contact::getDarkestSecret()
 {
-    return this->darkest_secret;
+    return darkest_secret;
 }

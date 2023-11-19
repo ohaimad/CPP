@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:56:40 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/08 22:29:50 by ohaimad          ###   ########.fr       */
+/*   Created: 2023/11/09 16:24:18 by ohaimad           #+#    #+#             */
+/*   Updated: 2023/11/17 15:33:05 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<iostream>
-#include<fstream>
-#include<sstream>
-#include<string>
+#include "Zombie.hpp"
 
-class Zombie
+Zombie* zombieHorde(int N, std::string name)
 {
-    private:
-        std::string name;
-    public:
-        Zombie(std::string mm);
-        void announce( void );
-};
-Zombie* newZombie( std::string name );
-void randomChump( std::string name);
+    
+} 

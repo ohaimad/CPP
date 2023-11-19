@@ -5,23 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 17:56:40 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/08 22:29:50 by ohaimad          ###   ########.fr       */
+/*   Created: 2023/11/09 16:24:21 by ohaimad           #+#    #+#             */
+/*   Updated: 2023/11/09 16:24:22 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<iostream>
-#include<fstream>
-#include<sstream>
-#include<string>
-
-class Zombie
-{
-    private:
-        std::string name;
-    public:
-        Zombie(std::string mm);
-        void announce( void );
-};
-Zombie* newZombie( std::string name );
-void randomChump( std::string name);

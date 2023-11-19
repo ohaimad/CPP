@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:17:57 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/10/28 18:51:42 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/11/12 19:59:30 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@
 
 int main(int c ,char **v)
 {
+    if(c <= 1)
+        std::cout << " LOUD AND UNBEARABLE FEEDBACK NOISE ";
     for(int i = 1; i < c; i++)
     {
         std::string str = v[i];
-        for(size_t j = 0; j < str.size(); j++)
+        for(unsigned long j = 0; j < str.size(); j++)
         {
             if(!isupper(str[j]))
                 std::cout << (char)toupper(str[j]);

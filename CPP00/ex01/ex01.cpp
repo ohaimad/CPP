@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 12:04:39 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/07 18:13:46 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/11/12 20:11:03 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include<sstream>
 #include<string>
 
-static int i = 0;
-
 int    ft_space(std::string str)
 {
     for(int i = 0; ((str[i] >= 9 && str[i] <= 13) || str[i] == 32); i++)
@@ -27,35 +25,32 @@ int    ft_space(std::string str)
     return(0);
 }
 
-void    ft_erreur(std::string command)
+std::string   ft_msg(std::string  command, std::string msg)
 {
     while(1)
     {
-        if(command.empty())
+        if(command.empty() || ft_space(command))
         {
             std::cout << "Empty string !! " << std::endl;
-            std::cout << "first name : ";
+            std::cout << msg;
             getline(std::cin,command);
             if (std::cin.eof())
                 exit(0);
         }
-        else if(ft_space(command))
-        {
-            std::cout << "Empty string !! " << std::endl;
-            std::cout << "first name : ";
-            getline(std::cin,command);
-            if (std::cin.eof())
-            exit(0);
-        }
         else if(command.length() > 0)
             break;
-    }   
+    }
+    // std::cout << "|" <<command << "|" << std::endl;
+    return (command);
 }
 
 void     cmds(std::string command, PhoneBook Adding)
 {
+    int p = 0;
     while(1)
     {
+        if (p == 7)
+            p = 0;
         std::cout << "add command: ";
         getline(std::cin, command);
         if(std::cin.eof())
@@ -68,128 +63,48 @@ void     cmds(std::string command, PhoneBook Adding)
             getline(std::cin,command);
             if (std::cin.eof())
                 exit(0);
-            ft_erreur(command);
-            Adding.contacts[i].setFirstName(command);
+            command = ft_msg(command, "first name : ");
+            Adding.contacts[p].setFirstName(command);
             std::cout << "last name : ";
             getline(std::cin, command);
             if(std::cin.eof())
                 exit(0);
-            while(1)
-            {
-                if(command.empty())
-                {
-                    std::cout << "Empty string !! " << std::endl;
-                    std::cout << "Last name : ";
-                    getline(std::cin,command);
-                    if (std::cin.eof())
-                    exit(0);
-                }
-                else if(ft_space(command))
-                {
-                    std::cout << "Empty string !! " << std::endl;
-                    std::cout << "first name : ";
-                    getline(std::cin,command);
-                    if (std::cin.eof())
-                    exit(0);
-                }
-                else if(command.length() > 0)
-                    break;
-            }
-            Adding.contacts[i].setLastName(command);
+            command = ft_msg(command, "last name : ");
+            Adding.contacts[p].setLastName(command);
             std::cout << "nickname : ";
             getline(std::cin, command);
             if(std::cin.eof())
                 exit(0);
-            while(1)
-            {
-                if(command.empty())
-                {
-                    std::cout << "Empty string !! " << std::endl;
-                    std::cout << "nickname : ";
-                    getline(std::cin,command);
-                    if (std::cin.eof())
-                    exit(0);
-                }
-                else if(ft_space(command))
-                {
-                    std::cout << "Empty string !! " << std::endl;
-                    std::cout << "first name : ";
-                    getline(std::cin,command);
-                    if (std::cin.eof())
-                    exit(0);
-                }
-                else if(command.length() > 0)
-                    break;
-            }
-            Adding.contacts[i].setNicktName(command);
+            command = ft_msg(command, "nickname : ");
+            Adding.contacts[p].setNicktName(command);
             std::cout << "phone number : ";
             getline(std::cin, command);
             if(std::cin.eof())
                 exit(0);
-            while(1)
-            {
-                if(command.empty())
-                {
-                    std::cout << "Empty string !! " << std::endl;
-                    std::cout << "phone number : ";
-                    getline(std::cin,command);
-                    if (std::cin.eof())
-                    exit(0);
-                }
-                else if(ft_space(command))
-                {
-                    std::cout << "Empty string !! " << std::endl;
-                    std::cout << "first name : ";
-                    getline(std::cin,command);
-                    if (std::cin.eof())
-                    exit(0);
-                }
-                else if(command.length() > 0)
-                    break;
-            }
-            Adding.contacts[i].setphonenumber(command);
+            command = ft_msg(command, "phone number : ");
+            Adding.contacts[p].setphonenumber(command);
             std::cout << "darkest secret : ";
             getline(std::cin, command);
             if(std::cin.eof())
                 exit(0);
-            while(1)
-            {
-                if(command.empty())
-                {
-                    std::cout << "Empty string !! " << std::endl;
-                    std::cout << "darkest secret : ";
-                    getline(std::cin,command);
-                    if (std::cin.eof())
-                    exit(0);
-                }
-                else if(ft_space(command))
-                {
-                    std::cout << "Empty string !! " << std::endl;
-                    std::cout << "first name : ";
-                    getline(std::cin,command);
-                    if (std::cin.eof())
-                    exit(0);
-                }
-                else if(command.length() > 0)
-                    break;
-            }
-            Adding.contacts[i].setdarkestsecret(command);
-            if (i == 8)
-                i = 0;
-            i++;
+            command = ft_msg(command, "darkest secret : ");
+            Adding.contacts[p].setdarkestsecret(command);
+            p++;
         }
         else if(command == "SEARCH")
         {
                 int index;
                 int contact = 0;
-    
+
                 if(Adding.contacts[0].getFisrtName() == "")
                 {
                     std::cout << "use ADD first !" << std::endl;
                     continue;
                 }
-                for (int a = 0; a < i; a++)
+                for (int a = 0; a < 7; a++)
                 {
+                    if (Adding.contacts[a].getFisrtName() == "")
+                        continue;
                     std::cout << "index : ";
                     std::cout << a + 1 << " |";
                     if(Adding.contacts[a].getFisrtName().length() > 10)
@@ -233,7 +148,7 @@ void     cmds(std::string command, PhoneBook Adding)
                     exit(0);
                 std::stringstream ss(command);
                 ss >> index;
-                if(index > 0 && index <= contact)
+                if((index > 0 && index <= contact) && !ft_space(command) && command.length() > 0)
                 {
                     std::cout << "first name : ";
                     std::cout << Adding.contacts[index - 1].getFisrtName() << std::endl;;

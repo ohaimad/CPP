@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 12:28:22 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/05 19:51:37 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/11/12 19:50:24 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@
 
 class PhoneBook
 {
-private: 
-public: int i;
+public:
     Contact contacts[8];
 };
 #endif

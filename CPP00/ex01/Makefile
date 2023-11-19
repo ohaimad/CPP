@@ -1,6 +1,6 @@
 NAME = PhoneBook
 
-CFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror
 
 CC = c++
 
@@ -11,10 +11,10 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp 
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.cpp PhoneBook.hpp Contact.hpp
+	$(CC) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ)
