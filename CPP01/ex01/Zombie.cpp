@@ -6,13 +6,32 @@
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:24:18 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/17 15:33:05 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/11/20 14:38:08 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie* zombieHorde(int N, std::string name)
+void Zombie::announce( void )
+{
+    std::cout << name << ": BraiiiiiiinnnzzzZ..."<< std::endl;
+}
+
+Zombie::Zombie(std::string mm) 
+{
+    name = mm;
+}
+
+Zombie::Zombie()
 {
     
-} 
+}
+ void   Zombie::setZombiename(std::string str)
+ {
+    name = str;
+ }
+
+ std::string Zombie::getZombiename()
+ {
+    return(name);
+ }
