@@ -1,4 +1,4 @@
-NAME = a.out
+XXXX = a.out
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -8,10 +8,10 @@ SRC = main.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
-all: $(NAME)
+all: $(XXXX)
 
-$(NAME): $(OBJ)
-	$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
+$(XXXX): $(OBJ) header.hpp
+	$(CC) $(CXXFLAGS) $(OBJ) -o $(XXXX)
 
 %.o: %.cpp 
 	$(CC) $(CXXFLAGS) -c $< -o $@
@@ -20,6 +20,6 @@ clean:
 	rm -rf $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(XXXX)
 
 re: fclean all
