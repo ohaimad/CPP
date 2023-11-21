@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   test.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 16:24:18 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/20 16:40:08 by ohaimad          ###   ########.fr       */
+/*   Created: 2023/11/21 16:53:36 by ohaimad           #+#    #+#             */
+/*   Updated: 2023/11/21 17:51:13 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+// #include "HumanA.hpp"
+// #include "HumanB.hpp"
 
-void Zombie::announce( void )
+# include <iostream>
+void modify_int(int *i)
 {
-    std::cout << name << ": BraiiiiiiinnnzzzZ..."<< std::endl;
+    (*i)++;
 }
 
-Zombie::Zombie(std::string mm) 
+int main()
 {
-    name = mm;
+    int i = 4;
+    int &d
+    modify_int(&i);
+    std::cout << i << std::endl;
 }
-
-Zombie::Zombie(){}
- void   Zombie::setZombiename(std::string str)
- {
-    name = str;
- }
-
- std::string Zombie::getZombiename()
- {
-    return(name);
- }

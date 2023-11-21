@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 16:24:18 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/20 16:40:08 by ohaimad          ###   ########.fr       */
+/*   Created: 2023/11/21 11:54:02 by ohaimad           #+#    #+#             */
+/*   Updated: 2023/11/21 17:59:16 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
-void Zombie::announce( void )
-{
-    std::cout << name << ": BraiiiiiiinnnzzzZ..."<< std::endl;
-}
+#include<iostream>
+#include<fstream>
+#include<sstream>
+#include<string>
 
-Zombie::Zombie(std::string mm) 
-{
-    name = mm;
-}
+class Weapon {
+private:
+    std::string type;
+public:
+    Weapon(const std::string &initialType);
+    const std::string &getType();
+    void setType(const std::string& newType);
+};
 
-Zombie::Zombie(){}
- void   Zombie::setZombiename(std::string str)
- {
-    name = str;
- }
-
- std::string Zombie::getZombiename()
- {
-    return(name);
- }
+#endif

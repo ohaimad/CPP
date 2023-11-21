@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 16:24:18 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/20 16:40:08 by ohaimad          ###   ########.fr       */
+/*   Created: 2023/11/21 11:48:45 by ohaimad           #+#    #+#             */
+/*   Updated: 2023/11/21 17:59:29 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
-void Zombie::announce( void )
-{
-    std::cout << name << ": BraiiiiiiinnnzzzZ..."<< std::endl;
-}
+#include<iostream>
+#include<fstream>
+#include<sstream>
+#include<string>
+#include "Weapon.hpp"
 
-Zombie::Zombie(std::string mm) 
-{
-    name = mm;
-}
+class HumanA {
+private:
+    std::string name;
+    Weapon &weapon;
+public:
+    HumanA(std::string str, Weapon &weapon);
+    void attack();
+};
 
-Zombie::Zombie(){}
- void   Zombie::setZombiename(std::string str)
- {
-    name = str;
- }
-
- std::string Zombie::getZombiename()
- {
-    return(name);
- }
+#endif
