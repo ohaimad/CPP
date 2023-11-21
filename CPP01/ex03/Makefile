@@ -10,7 +10,7 @@ OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) HumanA.hpp HumanB.hpp Weapon.hpp
 	$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp 

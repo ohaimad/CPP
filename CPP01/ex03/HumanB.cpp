@@ -6,17 +6,21 @@
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:53:52 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/21 18:17:27 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/11/21 20:32:16 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string str){ this->name = str;};
+HumanB::HumanB(std::string str)
+{
+    weapon = NULL;
+    this->name = str;
+}
 
 void    HumanB::setWeapon(Weapon &weaponType)
 {
-    weapon = new Weapon(weaponType);
+    weapon = &weaponType;
 }
 
 void HumanB::attack()
@@ -27,7 +31,3 @@ void HumanB::attack()
         std::cout << name << " is unarmed and cannot attack." << std::endl;
 }
 
-HumanB::~HumanB()
-{
-    delete weapon;
-}
