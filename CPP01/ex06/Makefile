@@ -1,16 +1,16 @@
-NAME = a.out
+NAME = Harl
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-SRC = main.cpp \
+SRC = main.cpp Harl.cpp\
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) header.hpp
+$(NAME): $(OBJ) Harl.hpp
 	$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp 

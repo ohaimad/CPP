@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 18:09:59 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/07 01:21:10 by ohaimad          ###   ########.fr       */
+/*   Created: 2023/11/25 20:17:02 by ohaimad           #+#    #+#             */
+/*   Updated: 2023/12/07 17:01:21 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include<iostream>
+#include<fstream>
+#include<sstream>
+#include<string>
 
-void randomChump( std::string name)
+class Harl
 {
-    Zombie s(name);
-    s.announce();
-}
+    private :
+        void debug( void );
+        void info( void );
+        void warning( void );
+        void error( void );
+    public:
+    void complain(std::string level);
+};

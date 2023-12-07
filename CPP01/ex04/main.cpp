@@ -6,13 +6,13 @@
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 20:41:51 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/21 23:04:19 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/11/21 23:40:42 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.hpp"
 
-void replaceInFile(const std::string& filename, const std::string& s1, const std::string& s2) 
+void replaceInFile(std::string& filename, std::string& s1, std::string& s2) 
 {
     // Open the input file
     std::ifstream inputFile(filename);
@@ -29,17 +29,20 @@ void replaceInFile(const std::string& filename, const std::string& s1, const std
     std::ofstream outputFile(outputFilename);
 
     // Check if the output file is opened successfully
-    if (!outputFile.is_open()) {
+    if (!outputFile.is_open()) 
+    {
         std::cerr << "Error creating output file: " << outputFilename << std::endl;
         return;
     }
 
     // Iterate through each line of the input file
     std::string line;
-    while (std::getline(inputFile, line)) {
+    while (std::getline(inputFile, line)) 
+    {
         // Perform the replacement in the current line
         size_t pos = 0;
-        while ((pos = line.find(s1, pos)) != std::string::npos) {
+        while ((pos = line.find(s1, pos)) != std::string::npos)
+        {
             line = line.substr(0, pos) + s2 + line.substr(pos + s1.length());
             pos += s2.length();
         }
@@ -54,9 +57,11 @@ void replaceInFile(const std::string& filename, const std::string& s1, const std
     std::cout << "Replacement completed. Check the file: " << outputFilename << std::endl;
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[]) 
+{
     // Check if the correct number of command-line arguments is provided
-    if (argc != 4) {
+    if (argc != 4) 
+    {
         std::cerr << "Usage: " << argv[0] << " <filename> <s1> <s2>" << std::endl;
         return 1; // Indicates an error
     }
