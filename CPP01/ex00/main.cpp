@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:08:53 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/19 16:56:37 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/08 00:20:34 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int main()
 {
-    Zombie s("Foo");
-    s.announce();
-    Zombie *n_zombie = newZombie("NEW");
+    randomChump("stack");
+    Zombie *n_zombie = newZombie("heap");
     n_zombie->announce();
-    randomChump("RANDOM");
+    delete n_zombie;
 }

@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 16:24:21 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/20 14:54:14 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/08 00:50:43 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Zombie
         Zombie(std::string mm);
         void    setZombiename(std::string str);
         std::string    getZombiename();
+        ~Zombie();
 };
 
 Zombie* zombieHorde( int N, std::string name );

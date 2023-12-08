@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:58:15 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/11/07 18:49:36 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/08 00:14:48 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,3 +21,8 @@ Zombie::Zombie(std::string mm)
 {
     name = mm;
 }
+
+ Zombie::~Zombie()
+ {
+    std::cout << "this destractor is dead " << name << std::endl;
+ }
