@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-SRC = main.cpp Harl.cpp\
+SRC = main.cpp Harl.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 

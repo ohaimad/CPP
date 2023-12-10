@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 20:17:02 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/07 17:01:21 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/10 17:49:17 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include<fstream>
 #include<sstream>
 #include<string>
+#pragma once
 
 class Harl
 {

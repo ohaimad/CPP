@@ -6,21 +6,21 @@
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 20:16:59 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/07 16:58:40 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/10 18:00:08 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Harl.hpp"
 
-int main()
+int main(int ac, char **av)
 {
+    (void)av;
+    if(ac != 1)
+        return 1;
     Harl lbka;
 
     lbka.complain("DEBUG");
-    puts("------------------------------");
     lbka.complain("INFO");
-    puts("------------------------------");
     lbka.complain("WARNING");
-    puts("------------------------------");
     lbka.complain("ERROR");
 }

@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad <ohaimad@student.42.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 21:33:04 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/10 00:11:26 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/10 18:02:52 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void replaceInFile(std::string &filename, std::string &s1, std::string &s2)
     std::ofstream outputFile(outputFilename);
     if (!outputFile.is_open())
     {
-        std::cerr << "Error creating output file: " << outputFilename << std::endl;
+        std::cerr << "Error outputfile: " << outputFilename << std::endl;
         return;
     }
 
@@ -33,15 +33,18 @@ void replaceInFile(std::string &filename, std::string &s1, std::string &s2)
     while (std::getline(inputFile, line))
     {
         size_t pos = 0;
+        size_t s1Len = s1.length();
+        size_t s2Len = s2.length();
         while ((pos = line.find(s1, pos)) != std::string::npos)
         {
-            line = line.substr(0, pos) + s2 + line.substr(pos + s1.length());
-            pos += s2.length();
+            line = line.substr(0, pos) + s2 + line.substr(pos + s1Len);
+            pos += s2Len;
         }
-        outputFile << line << std::endl;
+        if (!inputFile.eof())
+            line += "\n";
+        outputFile << line;
     }
     inputFile.close();
     outputFile.close();
-
-    std::cout << "Replacement completed. Check the file: " << outputFilename << std::endl;
+    std::cout << "completed. Check the file: " << outputFilename << std::endl;
 }
