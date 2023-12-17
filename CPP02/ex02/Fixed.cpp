@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:21:36 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/17 04:24:26 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/17 20:52:31 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,18 @@ Fixed::~Fixed() {
 }
 
 Fixed::Fixed(const int value) : fixed(value << fracts) {
+    
     std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(const float value) : fixed(static_cast<int>(roundf(value * (1 << fracts)))) {
+Fixed::Fixed(const float value)
+{
+    fixed = roundf(value * (1 << fracts));
     std::cout << "Float constructor called" << std::endl;
 }
 
 float Fixed::toFloat() const {
-    return static_cast<float>(fixed) / (1 << fracts);
+    return ((float)fixed / (1 << fracts));
 }
 
 int Fixed::toInt() const {
@@ -63,6 +66,11 @@ bool Fixed::operator>=(const Fixed &other) const {
     return fixed >= other.fixed;
 }
 
+void Fixed::setRawBits(int const raw) {
+    std::cout << "setRawBits member function called" << std::endl;
+    fixed = raw;
+}
+
 bool Fixed::operator<=(const Fixed &other) const {
     return fixed <= other.fixed;
 }
@@ -77,19 +85,25 @@ bool Fixed::operator!=(const Fixed &other) const {
 
 // Overload arithmetic operators
 Fixed Fixed::operator+(const Fixed &other) const {
-    return Fixed(this->toFloat() + other.toFloat());
+    return Fixed(this->fixed + other.fixed);
 }
 
 Fixed Fixed::operator-(const Fixed &other) const {
-    return Fixed(this->toFloat() - other.toFloat());
+    return Fixed(this->fixed - other.fixed);
 }
 
 Fixed Fixed::operator*(const Fixed &other) const {
-    return Fixed(this->toFloat() * other.toFloat());
+    Fixed res;
+
+    res.setRawBits(this->fixed * other.fixed/(1 << fracts));
+    return res; // ==> 2^8
 }
 
 Fixed Fixed::operator/(const Fixed &other) const {
-    return Fixed(this->toFloat() / other.toFloat());
+    Fixed res;
+
+    res.setRawBits((this->fixed / other.fixed) * (1 << fracts));
+    return res; // ==> 2^8
 }
 
 // Overload increment/decrement operators
@@ -146,6 +160,7 @@ const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
 
 // Overload of the insertion operator
 std::ostream &operator<<(std::ostream &out, const Fixed &obj) {
+
     out << obj.toFloat();
     return out;
 }

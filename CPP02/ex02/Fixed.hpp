@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:23:02 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/17 04:20:06 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/17 20:46:41 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ public:
 
     ~Fixed();
     // Overload of the insertion operator
+    void setRawBits(int const raw);
     friend std::ostream &operator<<(std::ostream &out, const Fixed &obj);
 };
