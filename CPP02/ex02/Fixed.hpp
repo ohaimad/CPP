@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:23:02 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/17 03:59:40 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/17 04:20:06 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ public:
     Fixed(const float value);
     Fixed(const Fixed &tmp);
     Fixed &operator=(const Fixed &tmp);
-    void setRawBits(int const raw);
-    int getRawBits() const;
     float toFloat() const;
     int toInt() const;
 

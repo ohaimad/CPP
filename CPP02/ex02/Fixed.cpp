@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:21:36 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/17 04:02:19 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/17 04:24:26 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,33 @@
 
 const int Fixed::fracts = 8;
 
-Fixed::Fixed() : fixed(0) {}
-Fixed::Fixed(const Fixed &tmp) : fixed(tmp.fixed) {}
+Fixed::Fixed() : fixed(0) {
+    std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const Fixed &tmp) : fixed(tmp.fixed) {
+    std::cout << "Copy constructor called" << std::endl;
+}
+
 Fixed &Fixed::operator=(const Fixed &tmp) {
+    std::cout << "Copy assignment operator called" << std::endl;
     if (this != &tmp) {
         fixed = tmp.fixed;
     }
     return *this;
 }
 
-void Fixed::setRawBits(int const raw) {
-    fixed = raw;
+Fixed::~Fixed() {
+    std::cout << "Destructor called" << std::endl;
 }
 
-int Fixed::getRawBits() const {
-    return fixed;
+Fixed::Fixed(const int value) : fixed(value << fracts) {
+    std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::~Fixed() {}
-Fixed::Fixed(const int value) : fixed(value << fracts) {}
-Fixed::Fixed(const float value) : fixed(static_cast<int>(roundf(value * (1 << fracts)))) {}
+Fixed::Fixed(const float value) : fixed(static_cast<int>(roundf(value * (1 << fracts)))) {
+    std::cout << "Float constructor called" << std::endl;
+}
 
 float Fixed::toFloat() const {
     return static_cast<float>(fixed) / (1 << fracts);
@@ -82,11 +89,6 @@ Fixed Fixed::operator*(const Fixed &other) const {
 }
 
 Fixed Fixed::operator/(const Fixed &other) const {
-    if (other.getRawBits() == 0) {
-        std::cerr << "Error: Division by zero!" << std::endl;
-        // You might want to handle this error differently depending on your use case
-        return Fixed();
-    }
     return Fixed(this->toFloat() / other.toFloat());
 }
 
