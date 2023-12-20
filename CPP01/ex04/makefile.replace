@@ -1,0 +1,25 @@
+NAME = a.out
+
+CCXXFLAGS = -Wall -Wextra -Werror -std=c++98
+
+CCCC = c++
+
+SRCC = main.cpp utils.cpp\
+
+OBJ = $(SRCC:.cpp=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJ) header.hpp
+	$(CCCC) $(CCXXFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp 
+	$(CCCC) $(CCXXFLAGS) -c $< -o $@
+
+clean:
+	rm -rf $(OBJ)
+
+fclean: clean
+	rm -rf $(NAME)
+
+re: fclean all

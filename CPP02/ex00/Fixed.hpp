@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:23:02 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/16 19:09:05 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/19 18:02:51 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ private:
 public:
     Fixed();
     Fixed(const Fixed &tmp);
-    Fixed &operator=(const Fixed &tmp);
+    Fixed &operator=(const Fixed &right);
     ~Fixed();
 
     int getRawBits() const;

@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:21:36 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/18 16:21:31 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/18 16:38:50 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,26 +84,30 @@ bool Fixed::operator!=(const Fixed &other) const {
 }
 
 // Overload arithmetic operators
-Fixed Fixed::operator+(const Fixed &other) const {
+Fixed Fixed::operator+(const Fixed &other) const
+{
     return Fixed(this->fixed + other.fixed);
 }
 
-Fixed Fixed::operator-(const Fixed &other) const {
+Fixed Fixed::operator-(const Fixed &other) const
+{
     return Fixed(this->fixed - other.fixed);
 }
 
-Fixed Fixed::operator*(const Fixed &other) const {
+Fixed Fixed::operator*(const Fixed &other) const
+{
     Fixed res;
 
     res.setRawBits(this->fixed * other.fixed/(1 << fracts));
-    return res; // ==> 2^8
+    return res;
 }
 
-Fixed Fixed::operator/(const Fixed &other) const {
+Fixed Fixed::operator/(const Fixed &other) const
+{
     Fixed res;
 
     res.setRawBits((this->fixed / other.fixed) * (1 << fracts));
-    return res; // ==> 2^8
+    return res;
 }
 
 // Overload increment/decrement operators
