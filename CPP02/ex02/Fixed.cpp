@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:21:36 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/18 16:38:50 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/20 23:32:53 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,26 @@ Fixed::Fixed() : fixed(0) {
     std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &tmp) : fixed(tmp.fixed) {
+Fixed::Fixed(const Fixed &tmp) {
     std::cout << "Copy constructor called" << std::endl;
+    *this = tmp;
 }
 
-Fixed &Fixed::operator=(const Fixed &tmp) {
+Fixed &Fixed::operator=(const Fixed &right) {
     std::cout << "Copy assignment operator called" << std::endl;
-    if (this != &tmp) {
-        fixed = tmp.fixed;
-    }
+    if (this != &right)
+        this->fixed = right.getRawBits();
     return *this;
+}
+
+int Fixed::getRawBits() const {
+    std::cout << "getRawBits member function called" << std::endl;
+    return fixed;
+}
+
+void Fixed::setRawBits(int const raw) {
+    std::cout << "setRawBits member function called" << std::endl;
+    fixed = raw;
 }
 
 Fixed::~Fixed() {
@@ -66,11 +76,6 @@ bool Fixed::operator>=(const Fixed &other) const {
     return fixed >= other.fixed;
 }
 
-void Fixed::setRawBits(int const raw) {
-    std::cout << "setRawBits member function called" << std::endl;
-    fixed = raw;
-}
-
 bool Fixed::operator<=(const Fixed &other) const {
     return fixed <= other.fixed;
 }
@@ -98,7 +103,7 @@ Fixed Fixed::operator*(const Fixed &other) const
 {
     Fixed res;
 
-    res.setRawBits(this->fixed * other.fixed/(1 << fracts));
+    res.setRawBits((this->fixed * other.fixed) / (1 << fracts));
     return res;
 }
 
@@ -106,7 +111,7 @@ Fixed Fixed::operator/(const Fixed &other) const
 {
     Fixed res;
 
-    res.setRawBits((this->fixed / other.fixed) * (1 << fracts));
+    res.setRawBits((this->fixed / (float)other.fixed) * (1 << fracts));
     return res;
 }
 

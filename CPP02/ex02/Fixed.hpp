@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:23:02 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/20 20:12:32 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/20 23:02:49 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ public:
     Fixed(const int value);
     Fixed(const float value);
     Fixed(const Fixed &tmp);
+    void setRawBits(int const raw);
+    int getRawBits() const;
     Fixed &operator=(const Fixed &tmp);
     float toFloat() const;
     int toInt() const;
@@ -59,6 +61,5 @@ public:
 
     ~Fixed();
     // Overload of the insertion operator
-    void setRawBits(int const raw);
 };
 std::ostream &operator<<(std::ostream &out, const Fixed &obj);
