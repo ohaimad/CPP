@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:16:22 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/20 23:31:59 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/21 02:43:08 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ int main( void )
 
     std::cout << a << std::endl;
     std::cout << ++a << std::endl;
-    std::cout << --a << std::endl;
     std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << Fixed::max( a, b ) << std::endl;
-    std::cout << Fixed::min( a, b ) << std::endl;
-    std::cout << (Fixed(5.0f) / Fixed(2.0f)) << std::endl;
+    std::cout << a-- << std::endl;
+    std::cout << --a << std::endl;
+    // std::cout << a << std::endl;
+    // std::cout << b << std::endl;
+    // std::cout << Fixed::max( a, b ) << std::endl;
+    // std::cout << Fixed::min( a, b ) << std::endl;
+    // std::cout << (Fixed(5.0f) / Fixed(2.0f)) << std::endl;
     return 0;
 }

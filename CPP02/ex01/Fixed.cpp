@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:21:36 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/20 23:24:47 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/21 02:20:58 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,8 @@ Fixed::Fixed(const float value)
     std::cout << "Float constructor called" << std::endl;
 }
 
-
 float Fixed::toFloat() const {
-    return (fixed) / (1 << fracts);
+    return ((float)(fixed) / (1 << fracts));
 }
 
 int Fixed::toInt() const {

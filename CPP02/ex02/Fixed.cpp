@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:21:36 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/20 23:32:53 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/21 02:40:52 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,8 @@ Fixed::Fixed(const float value)
 }
 
 float Fixed::toFloat() const {
-    return ((float)fixed / (1 << fracts));
+    return ((float)(fixed) / (1 << fracts));
 }
-
 int Fixed::toInt() const {
     return fixed >> fracts;
 }
@@ -121,15 +120,15 @@ Fixed &Fixed::operator++() {
     return *this;
 }
 
+Fixed &Fixed::operator--() {
+    --fixed;
+    return *this;
+}
+
 Fixed Fixed::operator++(int) {
     Fixed tmp(*this);
     ++fixed;
     return tmp;
-}
-
-Fixed &Fixed::operator--() {
-    --fixed;
-    return *this;
 }
 
 Fixed Fixed::operator--(int) {
