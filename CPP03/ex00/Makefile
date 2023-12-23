@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-SRC = main.cpp Fixed.cpp \
+SRC = main.cpp ClapTrap.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -13,7 +13,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp Fixed.hpp
+%.o: %.cpp ClapTrap.hpp
 	$(CC) $(CXXFLAGS) -c $< -o $@
 
 clean:
