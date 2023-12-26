@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 03:59:32 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/24 23:09:16 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/26 21:35:38 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,18 @@
 #include<string>
 #pragma once
 
-class ClapTrap 
-{
-    private:
-        std::string Name;
-    
+class ClapTrap {
     protected:
+        std::string Name;
         unsigned int HitPoints;
         unsigned int EnergyPoints;
         unsigned int AttackDamage;
-    
     public:
-    // Constructors and destructor
-    ClapTrap(const std::string& name);
-    virtual ~ClapTrap();
+    ClapTrap();
+    ClapTrap(const ClapTrap &obj);
+    ClapTrap(const std::string &name);
+    ClapTrap &operator=(const ClapTrap &obj);
+    ~ClapTrap();
 
     // Member functions
     void attack(const std::string& target);
@@ -42,3 +40,4 @@ class ClapTrap
     unsigned int getEnergyPoints() const;
     unsigned int getAttackDamage() const;
 };
+

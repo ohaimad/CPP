@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 23:04:36 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/24 23:13:27 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/26 21:39:21 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 class FragTrap : public ClapTrap 
 {
     public:
-    // Constructors and destructor
+    FragTrap();
     FragTrap(const std::string& name);
-    virtual ~FragTrap();
+    FragTrap(const FragTrap &obj);
+    FragTrap &operator=(const FragTrap &obj);
+    ~FragTrap();
 
-    // Special capacity
     void highFivesGuys();
 };
 

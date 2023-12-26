@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 22:49:26 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/24 23:17:36 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/26 21:36:14 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 class ScavTrap : public ClapTrap
 {
     public:
-    // Constructors and destructor
-    ScavTrap(const std::string& name);
-    virtual ~ScavTrap();
+    ScavTrap();
+    ScavTrap(const std::string &name);
+    ScavTrap(const ScavTrap &obj);
+    ScavTrap &operator=(const ScavTrap &obj);
+    ~ScavTrap();
 
-    // Special capacity
     void guardGate();
 };
 
