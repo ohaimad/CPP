@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 03:59:32 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/26 21:29:41 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/26 21:40:21 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class ClapTrap {
     ClapTrap &operator=(const ClapTrap &obj);
     ~ClapTrap();
 
-    // Member functions
     void attack(const std::string& target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);

@@ -6,14 +6,13 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:16:22 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/24 23:01:17 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/26 21:41:00 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 int main() {
-    // Create a ClapTrap instance
     ClapTrap claptrap("PLAYER");
 
     claptrap.attack("ENEMY");

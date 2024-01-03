@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/28 23:05:04 by otmane            #+#    #+#             */
-/*   Updated: 2024/01/03 19:08:54 by ohaimad          ###   ########.fr       */
+/*   Created: 2024/01/02 11:31:04 by ohaimad           #+#    #+#             */
+/*   Updated: 2024/01/03 19:09:08 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
 #include "Dog.hpp"
-#include "Cat.hpp"
 
-int main() {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-
-    i->makeSound();  // will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
-
-    // delete meta;
-
-    return 0;
+Dog::Dog() : type("Dog"){
+    std::cout << "Constructed a Dog" << std::endl;
 }
 
+Dog::~Dog() {
+    std::cout << "Destroyed a Dog" << std::endl;
+}
+
+Dog::Dog(const Dog& copy) {
+    *this = copy;
+}
+
+Dog& Dog::operator=(const Dog& obj) {
+    if (this != &obj)
+        *this = obj;
+    return (*this);
+}
+
+void Dog::makeSound() const{
+    std::cout << "Bark! Bark!" << std::endl;
+}

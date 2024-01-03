@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 03:59:35 by ohaimad           #+#    #+#             */
-/*   Updated: 2023/12/26 21:35:27 by ohaimad          ###   ########.fr       */
+/*   Updated: 2023/12/26 21:42:32 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ ClapTrap::ClapTrap() {}
 ClapTrap::ClapTrap(const ClapTrap &obj) {
     *this = obj;
 }
+
 ClapTrap &ClapTrap::operator=(const ClapTrap &obj) {
     Name = obj.Name;
     HitPoints = obj.HitPoints;
