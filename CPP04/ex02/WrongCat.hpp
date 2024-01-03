@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 12:04:11 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/02 12:18:58 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/03 23:05:00 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class WrongCat : public WrongAnimal{
         ~WrongCat();
         WrongCat(const WrongCat& copy);
         WrongCat& operator=(const WrongCat& obj);
+        void makeSound() const;
 };
 
 #endif
