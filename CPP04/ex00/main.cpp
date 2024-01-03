@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 23:05:04 by otmane            #+#    #+#             */
-/*   Updated: 2024/01/03 23:07:50 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/03 23:49:02 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,10 @@ int main() {
     x->makeSound();
     i->makeSound();  // will output the cat sound!
     j->makeSound();
+
+    delete i;
+    delete j;
+    delete meta;
+    delete x;
     return 0;
 }

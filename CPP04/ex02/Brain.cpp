@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 11:30:52 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/03 23:45:40 by ohaimad          ###   ########.fr       */
+/*   Created: 2024/01/03 23:26:43 by ohaimad           #+#    #+#             */
+/*   Updated: 2024/01/04 00:20:21 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Brain.hpp"
 
-Cat::Cat() : type("Cat"){
-    std::cout << "Constructed a Cat" << std::endl;
-    dmagh = new Brain();
+Brain::Brain() {
+    std::cout << "Brain const called" << std::endl;
 }
 
-Cat::~Cat() {
-    std::cout << "Destroyed a Cat" << std::endl;
-    delete dmagh;
+Brain::~Brain() {
+    std::cout << "Brain dist called" << std::endl;
 }
 
-Cat::Cat(const Cat& copy) {
+Brain::Brain(const Brain& copy) {
     *this = copy;
 }
 
-Cat& Cat::operator=(const Cat& obj) {
-    if (this != &obj)
+Brain& Brain::operator=(const Brain& obj) {
+    if (this != &obj) 
         *this = obj;
     return (*this);
-}
-
-void Cat::makeSound() const{
-    std::cout << "Meow! Meow!" << std::endl;
 }

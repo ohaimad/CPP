@@ -6,27 +6,34 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 23:05:04 by otmane            #+#    #+#             */
-/*   Updated: 2024/01/03 23:07:50 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/04 00:43:50 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongCat.hpp"
+#include "Brain.hpp"
 
-int main() {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    const WrongAnimal* x = new WrongCat();
+void leaks( void )
+{
+    system("leaks Animals");
+};
 
-    std::cout << j->getType() << "" << std::endl;
-    std::cout << i->getType() << "" << std::endl;
+int main()
+{
+    // atexit(leaks);
+    const int arraySize = 4;
+    Animal* animalArray[arraySize];
 
-    meta->makeSound();
-    x->makeSound();
-    i->makeSound();  // will output the cat sound!
-    j->makeSound();
-    return 0;
+    for (int i = 0; i < arraySize; i++) {
+        if (i % 2)
+            animalArray[i] = new Dog();
+        else
+            animalArray[i] = new Cat();
+    }
+    std::cout << "-" << std::endl;
+    for (int i = 0; i < arraySize; ++i) {
+        delete animalArray[i];
+    }
 }

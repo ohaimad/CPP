@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 11:31:04 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/03 19:09:08 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/03 23:46:58 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 Dog::Dog() : type("Dog"){
     std::cout << "Constructed a Dog" << std::endl;
+    dmagh = new Brain();
 }
 
 Dog::~Dog() {
     std::cout << "Destroyed a Dog" << std::endl;
+    delete dmagh;
 }
 
 Dog::Dog(const Dog& copy) {

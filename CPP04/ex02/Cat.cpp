@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 11:30:52 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/03 19:09:20 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/03 23:45:40 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 Cat::Cat() : type("Cat"){
     std::cout << "Constructed a Cat" << std::endl;
+    dmagh = new Brain();
 }
 
 Cat::~Cat() {
     std::cout << "Destroyed a Cat" << std::endl;
+    delete dmagh;
 }
 
 Cat::Cat(const Cat& copy) {
