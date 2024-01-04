@@ -6,13 +6,11 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 19:35:41 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/04 21:44:04 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/04 21:51:37 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp" 
-
-#include "AMateria.hpp"
 
 AMateria::AMateria() {
 }
@@ -29,3 +27,7 @@ AMateria& AMateria::operator=(const AMateria& obj) {
         *this = obj;
     return (*this);
 }
+
+// void AMateria::use(ICharacter& target){
+    
+// }
