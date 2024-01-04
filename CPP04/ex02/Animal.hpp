@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 15:42:34 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/04 00:11:28 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/04 01:50:04 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Animal {
         Animal();
         Animal(const Animal& copy);
         Animal& operator=(const Animal& obj);
-        virtual void makeSound() const;
+        virtual void makeSound() const = 0;
         virtual ~Animal();
         std::string getType() const;
 };
