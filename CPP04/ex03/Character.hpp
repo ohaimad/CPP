@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 19:33:38 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/05 19:32:05 by ohaimad          ###   ########.fr       */
+/*   Created: 2024/01/05 19:02:24 by ohaimad           #+#    #+#             */
+/*   Updated: 2024/01/05 19:51:06 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-#define AMATERIA_HPP
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP
 #include<iostream>
 #include<fstream>
 #include<sstream>
 #include<string>
 #include "ICharacter.hpp"
 
-class ICharacter;
-class AMateria
+class Character : public ICharacter
 {
-    protected:
-        std::string type;
+    private:
+        AMateria *sl[4];
+        std::string name;
     public:
-        AMateria(std::string const & type){}
-        std::string const & getType() const{return type;} //Returns the materia type
-        virtual AMateria* clone() const = 0;
-        virtual void use(ICharacter& target);
-        AMateria();
-        virtual ~AMateria();
-        AMateria(const AMateria& copy);
-        AMateria& operator=(const AMateria& obj);
+        Character();
+        ~Character();
+        Character(const Character& copy);
+        Character& operator=(const Character& obj);
+        std::string const & getName() const;
+        void equip(AMateria* m) ;
+        void unequip(int idx);
+        void use(int idx, ICharacter& target);
 };
 
 #endif

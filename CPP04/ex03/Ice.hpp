@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 21:02:51 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/04 21:09:48 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/05 19:11:22 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Ice : public AMateria{
         Ice(const Ice& copy);
         Ice& operator=(const Ice& obj);
         AMateria* clone() const;
+        void use(ICharacter& target);
 };
 
 #endif

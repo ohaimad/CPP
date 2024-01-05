@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 21:47:16 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/04 21:51:55 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/05 19:06:26 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 #include<string>
 #include "AMateria.hpp"
 
-class ICharacter : public AMateria{
+class AMateria;
+class ICharacter {
     public:
         virtual ~ICharacter() {}
         virtual std::string const & getName() const = 0;

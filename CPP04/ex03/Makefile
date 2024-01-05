@@ -1,10 +1,14 @@
 NAME = Animals
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = #-Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-SRC = main.cpp AMateria.cpp \
+SRC =  AMateria.cpp \
+ICharacter.cpp\
+ Cure.cpp\
+ Ice.cpp\
+ main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
