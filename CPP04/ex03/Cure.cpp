@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 20:58:32 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/06 13:17:07 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 13:21:29 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Cure::Cure(const Cure& copy) {
 
 Cure& Cure::operator=(const Cure& obj) {
     if (this != &obj) 
-        *this = obj;
+        this->type = obj.type;
     return (*this);
 }
 

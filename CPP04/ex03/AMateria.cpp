@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 19:35:41 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/06 13:14:35 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 13:22:22 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ AMateria::AMateria(const AMateria& copy) {
 
 AMateria& AMateria::operator=(const AMateria& obj) {
     if (this != &obj) 
-        type= obj.type;
+        type = obj.type;
     return (*this);
 }
 

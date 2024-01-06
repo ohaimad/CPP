@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 21:07:38 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/06 13:18:57 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 13:24:27 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ Ice::Ice(const Ice& copy) {
     *this = copy;
 }
 
-Ice& Ice::operator=(const Ice& obj) {
+Ice& Ice::operator=(const Ice &obj) {
     if (this != &obj) 
-        *this = obj;
+        this->type = obj.type;
     return (*this);
 }
 
