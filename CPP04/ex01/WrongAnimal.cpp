@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:11:23 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/03 23:10:18 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 16:35:20 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void WrongAnimal::makeSound() const{
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& obj) {
-    if (this != &obj) 
-        *this = obj;
+    if (this != &obj)
+        this->type = obj.type;
     return (*this);
 }

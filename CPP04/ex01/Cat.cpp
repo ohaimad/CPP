@@ -6,13 +6,14 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 11:30:52 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/03 23:45:40 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 16:39:11 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : type("Cat"){
+Cat::Cat() {
+    type = "Cat";
     std::cout << "Constructed a Cat" << std::endl;
     dmagh = new Brain();
 }
@@ -27,8 +28,8 @@ Cat::Cat(const Cat& copy) {
 }
 
 Cat& Cat::operator=(const Cat& obj) {
-    if (this != &obj)
-        *this = obj;
+    if (this != &obj) 
+        this->type = obj.type;
     return (*this);
 }
 

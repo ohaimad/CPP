@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 23:05:04 by otmane            #+#    #+#             */
-/*   Updated: 2024/01/04 00:43:50 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 17:28:18 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,8 @@
 #include "Cat.hpp"
 #include "Brain.hpp"
 
-void leaks( void )
-{
-    system("leaks Animals");
-};
-
 int main()
 {
-    // atexit(leaks);
     const int arraySize = 4;
     Animal* animalArray[arraySize];
 
