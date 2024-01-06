@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 12:04:57 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/03 23:11:31 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 16:00:39 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void WrongCat::makeSound() const{
 }
 WrongCat& WrongCat::operator=(const WrongCat& obj) {
     if (this != &obj)
-        *this = obj;
+        this->type = obj.type;
     return (*this);
 }

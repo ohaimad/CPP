@@ -6,13 +6,14 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 11:31:04 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/03 19:09:08 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 16:15:22 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() : type("Dog"){
+Dog::Dog() {
+    type = "Dog";
     std::cout << "Constructed a Dog" << std::endl;
 }
 
@@ -25,8 +26,8 @@ Dog::Dog(const Dog& copy) {
 }
 
 Dog& Dog::operator=(const Dog& obj) {
-    if (this != &obj)
-        *this = obj;
+    if (this != &obj) 
+        this->type = obj.type;
     return (*this);
 }
 

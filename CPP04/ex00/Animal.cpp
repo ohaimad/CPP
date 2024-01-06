@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 11:30:35 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/03 19:09:58 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 15:58:04 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ Animal::Animal(const Animal& copy) {
 }
 
 Animal& Animal::operator=(const Animal& obj) {
-    if (this != &obj)
-        *this = obj;
+    if (this != &obj) 
+        this->type = obj.type;
     return (*this);
 }
 

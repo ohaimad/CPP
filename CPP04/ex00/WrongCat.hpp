@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 12:04:11 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/03 23:05:00 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 15:59:29 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define WRONGCAT_HPP
 #include "WrongAnimal.hpp"
 
-class WrongCat : public WrongAnimal{
+class WrongCat : public WrongAnimal {
     public:
         WrongCat();
         ~WrongCat();

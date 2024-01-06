@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 12:05:46 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/03 23:08:28 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 16:23:06 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include<string>
 
 class WrongAnimal {
+    protected : 
+        std::string type;
     public:
         WrongAnimal();
         ~WrongAnimal();
