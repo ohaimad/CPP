@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 21:07:38 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/06 13:24:27 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 15:05:47 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,16 @@ AMateria* Ice::clone() const
 
 void Ice::use(ICharacter& target){
     std::cout << "* shoots an ice bolt at " << target.getName() << "*" << std::endl;
+}
+
+#include "Ice.hpp"
+
+Ice::Ice() {
+}
+
+Ice::~Ice() {
+}
+
+Ice::Ice(const Ice& copy) {
+    *this = copy;
 }
