@@ -1,50 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.cpp                                      :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/05 19:02:33 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/06 13:16:37 by ohaimad          ###   ########.fr       */
+/*   Created: 2024/01/06 12:59:44 by ohaimad           #+#    #+#             */
+/*   Updated: 2024/01/06 13:09:06 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
+#include "MateriaSource.hpp"
 
-Character::Character() {
+MateriaSource::MateriaSource() {
     for (int i = 0; i < 4; i++)
         sl[i] = NULL;
 }
 
-Character::~Character() {
+MateriaSource::~MateriaSource() {
     for (int i = 0; i < 4; i++)
         delete sl[i];
 }
 
-Character::Character(const Character& copy) {
+MateriaSource::MateriaSource(const MateriaSource& copy) {
     *this = copy;
 }
 
-Character::Character(std::string name)
-{
-    this->name = name;
-}
-
-Character& Character::operator=(const Character& obj) {
+MateriaSource& MateriaSource::operator=(const MateriaSource& obj) {
     if (this != &obj) 
         *sl = *(obj.sl);
     return (*this);
 }
 
-std::string const & Character::getName() const
-{
-    return name;
-}
 
-void Character::equip(AMateria* m) 
+void MateriaSource::learnMateria(AMateria* m)
 {
-    for(int i = 0; i < 4; i++)
+     for(int i = 0; i < 4; i++)
     {
         if(sl[i] == NULL)
         {
@@ -54,14 +45,14 @@ void Character::equip(AMateria* m)
     }
 }
 
-void Character::unequip(int idx)
+AMateria* MateriaSource::createMateria(std::string const & type)
 {
-    if(idx >= 0 && idx < 4)
-        sl[idx] = NULL;
-}
-
-void Character::use(int idx, ICharacter& target)
-{
-    if(idx >= 0 && idx < 4 && sl[idx])
-        sl[idx]->use(target);
+     for(int i = 0; i < 4; i++)
+    {
+        if(sl[i] &&  sl[i]->getType() == type)
+        {
+            return sl[i]->clone();
+        }
+    }
+    return (0);
 }

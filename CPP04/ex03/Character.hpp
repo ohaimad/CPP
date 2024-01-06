@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 19:02:24 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/05 19:51:06 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 13:12:21 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Character : public ICharacter
         AMateria *sl[4];
         std::string name;
     public:
+        Character(std::string name);
         Character();
         ~Character();
         Character(const Character& copy);

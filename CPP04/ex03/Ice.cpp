@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 21:07:38 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/05 19:11:33 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 13:18:57 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ICharacter.hpp"
 
 Ice::Ice() {
-    type = "cure";
+    type = "ice";
 }
 
 Ice::~Ice() {
@@ -36,5 +36,5 @@ AMateria* Ice::clone() const
 }
 
 void Ice::use(ICharacter& target){
-    // std::cout << "* shoots an ice bolt at " << target << "*" << std::endl;
+    std::cout << "* shoots an ice bolt at " << target.getName() << "*" << std::endl;
 }

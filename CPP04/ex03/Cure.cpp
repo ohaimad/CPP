@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 20:58:32 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/05 19:28:12 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 13:17:07 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ Cure::Cure(){
 }
 
 Cure::~Cure() {
-    std::cout << "drived" << std::endl;
-
 }
 
 Cure::Cure(const Cure& copy) {
@@ -38,5 +36,5 @@ AMateria* Cure::clone() const
 }
 
 void Cure::use(ICharacter& target){
-    
+    std::cout << "* heals "<< target.getName() << "'s wounds *" << std::endl;
 }

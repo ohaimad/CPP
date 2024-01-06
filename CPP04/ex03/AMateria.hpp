@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 19:33:38 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/05 19:32:05 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 13:13:53 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class AMateria
     protected:
         std::string type;
     public:
-        AMateria(std::string const & type){}
+        AMateria(std::string const & type);
         std::string const & getType() const{return type;} //Returns the materia type
         virtual AMateria* clone() const = 0;
         virtual void use(ICharacter& target);
