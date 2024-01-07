@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 23:05:04 by otmane            #+#    #+#             */
-/*   Updated: 2024/01/06 17:28:18 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/07 15:31:24 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,17 @@
 
 int main()
 {
+
+    // Dog cc;
+
+    // Brain *l = cc.getbrain();
+    // for (size_t i = 0; i < 100; i++)
+    //     l->ideas[i] = "none";
+    // {
+    //     Dog tets = cc;
+    //     l = tets.getbrain();
+    //     std::cout << l->ideas[50] << std::endl;
+    // }
     const int arraySize = 4;
     Animal* animalArray[arraySize];
 
@@ -27,7 +38,6 @@ int main()
             animalArray[i] = new Cat();
     }
     std::cout << "-" << std::endl;
-    for (int i = 0; i < arraySize; ++i) {
+    for (int i = 0; i < arraySize; ++i)
         delete animalArray[i];
-    }
 }

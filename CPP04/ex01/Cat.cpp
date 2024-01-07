@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 11:30:52 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/06 16:39:11 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/07 15:15:11 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,17 @@ Cat::~Cat() {
 }
 
 Cat::Cat(const Cat& copy) {
+    dmagh = new Brain();
     *this = copy;
 }
 
 Cat& Cat::operator=(const Cat& obj) {
     if (this != &obj) 
+    {
+        for (size_t i = 0; i < 100; i++)
+            dmagh->ideas[i] = obj.dmagh->ideas[i];
         this->type = obj.type;
+    }
     return (*this);
 }
 

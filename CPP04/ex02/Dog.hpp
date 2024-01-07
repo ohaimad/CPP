@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 15:42:34 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/04 00:10:50 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/07 15:35:11 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 class Dog : public Animal{
     private:
         Brain  *dmagh;
-    protected :
-        std::string type;
     public:
         Dog();
         ~Dog();

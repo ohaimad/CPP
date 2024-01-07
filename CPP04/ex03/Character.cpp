@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 19:02:33 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/06 13:16:37 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/07 14:18:19 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void Character::equip(AMateria* m)
         if(sl[i] == NULL)
         {
             sl[i] = m;
-            break; 
+            break;
         }
     }
 }

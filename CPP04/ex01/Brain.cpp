@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 23:26:43 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/06 16:27:40 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/07 15:14:03 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ Brain::Brain(const Brain& copy) {
 
 Brain& Brain::operator=(const Brain& obj) {
     if (this != &obj)
-        *ideas = *(obj.ideas);
+    {
+        for (size_t i = 0; i < 100; i++)
+            ideas[i] = obj.ideas[i];
+    }
     return (*this);
 }

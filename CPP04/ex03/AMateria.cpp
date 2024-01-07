@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 19:35:41 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/06 13:22:22 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/06 22:54:13 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ AMateria::AMateria() {
 }
 
 AMateria::~AMateria() {
-    // std::cout << "base" << std::endl;
 }
 
 AMateria::AMateria(std::string const & type)

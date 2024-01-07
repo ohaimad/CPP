@@ -6,18 +6,18 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 11:30:35 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/06 15:58:04 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/07 13:37:19 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
 Animal::Animal() {
-    std::cout << "Constructed an Animal of type: " << type << std::endl;
+    std::cout << "Constructed an Animal" << type << std::endl;
 }
 
 Animal::~Animal() {
-    std::cout << "Destroyed an Animal of type: " << type << std::endl;
+    std::cout << "Destroyed an Animal" << type << std::endl;
 }
 
 Animal::Animal(const Animal& copy) {
