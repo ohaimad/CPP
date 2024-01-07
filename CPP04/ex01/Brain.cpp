@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 23:26:43 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/07 15:14:03 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/07 16:29:53 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Brain::~Brain() {
 }
 
 Brain::Brain(const Brain& copy) {
+    std::cout << " copy Constructer " << std::endl;
     *this = copy;
 }
 

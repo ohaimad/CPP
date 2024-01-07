@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 19:11:23 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/07 15:38:03 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/07 16:32:02 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ WrongAnimal::~WrongAnimal() {
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& copy) {
+    std::cout << " copy Constructer " << std::endl;
     *this = copy;
 }
 

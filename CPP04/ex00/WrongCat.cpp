@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 12:04:57 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/06 16:00:39 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/07 16:30:14 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ WrongCat::~WrongCat() {
 }
 
 WrongCat::WrongCat(const WrongCat& copy) {
+    std::cout << " copy Constructer " << std::endl;
     *this = copy;
 }
 void WrongCat::makeSound() const{

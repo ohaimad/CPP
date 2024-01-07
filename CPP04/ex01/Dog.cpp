@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 11:31:04 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/07 15:31:12 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/07 16:31:08 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ Dog::~Dog() {
 }
 
 Dog::Dog(const Dog& copy) {
+    std::cout << " copy Constructer " << std::endl;
     dmagh = new Brain();
     *this = copy;
 }

@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 11:30:52 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/06 16:40:38 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/07 16:30:29 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Cat::~Cat() {
 }
 
 Cat::Cat(const Cat& copy) {
+    std::cout << " copy Constructer " << std::endl;
     *this = copy;
 }
 

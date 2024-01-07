@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 11:30:35 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/07 13:37:19 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/07 16:30:33 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Animal::~Animal() {
 }
 
 Animal::Animal(const Animal& copy) {
+    std::cout << " copy Constructer " << std::endl;
     *this = copy;
 }
 
