@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 20:39:36 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/25 23:16:28 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/25 23:33:58 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 #pragma once
 
 class Bureaucrat {
-private:
-    const std::string name;
-    int grade;
+    private:
+        const std::string name;
+        int grade;
 
 public:
     class GradeTooHighException : public std::exception {
@@ -40,5 +40,5 @@ public:
 
     void decrementGrade();
 
-    friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 };
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
