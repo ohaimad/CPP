@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-SRC = main.cpp Bureaucrat.cpp Form.cpp\
+SRC = main.cpp Bureaucrat.cpp Form.cpp AForm.cpp PresidentialPardonForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp \
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -13,7 +13,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp Bureaucrat.hpp Form.hpp
+%.o: %.cpp Bureaucrat.hpp Form.hpp AForm.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp 
 	$(CC) $(CXXFLAGS) -c $< -o $@
 
 clean:

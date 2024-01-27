@@ -6,37 +6,37 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:38 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/26 22:02:40 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/27 02:13:41 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main() {
     try {
         Bureaucrat bureaucrat("John Doe", 50);
-        Form form("Approval Form", 40, 30);
+        ShrubberyCreationForm shrubberyForm("Home");
+        RobotomyRequestForm robotomyForm("Target");
+        PresidentialPardonForm pardonForm("Criminal");
 
         std::cout << "Initial Bureaucrat: " << bureaucrat << std::endl;
-        std::cout << "Initial Form: " << form << std::endl;
+        std::cout << "Initial Shrubbery Form: " << shrubberyForm << std::endl;
+        std::cout << "Initial Robotomy Form: " << robotomyForm << std::endl;
+        std::cout << "Initial Pardon Form: " << pardonForm << std::endl;
 
-        bureaucrat.signForm(form);
+        bureaucrat.signForm(shrubberyForm);
+        bureaucrat.signForm(robotomyForm);
+        bureaucrat.signForm(pardonForm);
 
-        std::cout << "Form after Bureaucrat signing attempt: " << form << std::endl;
+        bureaucrat.executeForm(shrubberyForm);
+        bureaucrat.executeForm(robotomyForm);
+        bureaucrat.executeForm(pardonForm);
 
-        bureaucrat.incrementGrade();
-        std::cout << "Bureaucrat after incrementing grade: " << bureaucrat << std::endl;
-
-        bureaucrat.signForm(form);
-
-        std::cout << "Form after successful Bureaucrat signing: " << form << std::endl;
-
-        // This will throw GradeTooLowException
-        Form invalidForm("Invalid Form", 160, 170);
-
-        // This will throw GradeTooLowException
-        form.beSigned(bureaucrat);
+        // Uncomment the line below to test GradeTooLowToExecuteException
+        // Bureaucrat lowGradeBureaucrat("Low Grade", 100);
 
     } catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;

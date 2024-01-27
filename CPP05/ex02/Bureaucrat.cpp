@@ -6,12 +6,12 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:15 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/26 22:02:17 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/27 02:12:39 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
     return "Grade is too high!";
@@ -51,13 +51,21 @@ void Bureaucrat::decrementGrade() {
         throw GradeTooLowException();
 }
 
-void Bureaucrat::signForm(Form& form) {
+void Bureaucrat::signForm(AForm& form) {
     try {
         form.beSigned(*this);
         std::cout << *this << " signed " << form << std::endl;
-    }
-    catch (const std::exception& e) {
+    } catch (const std::exception& e) {
         std::cout << *this << " couldn't sign " << form << " because " << e.what() << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(AForm const & form) {
+    try {
+        form.execute(*this);
+        std::cout << *this << " executed " << form << std::endl;
+    } catch (const std::exception& e) {
+        std::cout << *this << " couldn't execute " << form << " because " << e.what() << std::endl;
     }
 }
 

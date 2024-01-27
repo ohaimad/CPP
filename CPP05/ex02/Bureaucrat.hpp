@@ -6,16 +6,17 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:21 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/26 22:02:23 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/27 02:12:26 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
+
 #include <iostream>
 #include <string>
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 private:
@@ -41,9 +42,11 @@ public:
 
     void decrementGrade();
 
-    void signForm(Form& form);
+    void signForm(AForm& form);
 
+    void executeForm(AForm const & form);
+
+    friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 };
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
-#endif
+#endif // BUREAUCRAT_HPP
