@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:27 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/26 22:02:28 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/27 15:13:18 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,3 @@ std::ostream& operator<<(std::ostream& os, const Form& form) {
        << ", Grade to Execute: " << form.getGradeToExecute();
     return os;
 }
-
-

@@ -6,15 +6,17 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:21 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/27 02:12:26 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/27 15:00:55 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include <iostream>
-#include <string>
+#include<iostream>
+#include<fstream>
+#include<sstream>
+#include<string>
 
 class AForm;
 
