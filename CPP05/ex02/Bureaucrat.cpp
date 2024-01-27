@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:15 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/27 15:59:11 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/28 00:35:26 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,3 @@ void Bureaucrat::executeForm(AForm const & form) {
     }
 }
 
-// std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
-//     os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
-//     return os;
-// }
