@@ -6,11 +6,13 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:38 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/27 02:13:41 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/27 15:38:13 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -23,9 +25,9 @@ int main() {
         PresidentialPardonForm pardonForm("Criminal");
 
         std::cout << "Initial Bureaucrat: " << bureaucrat << std::endl;
-        std::cout << "Initial Shrubbery Form: " << shrubberyForm << std::endl;
-        std::cout << "Initial Robotomy Form: " << robotomyForm << std::endl;
-        std::cout << "Initial Pardon Form: " << pardonForm << std::endl;
+        std::cout << "Initial Shrubbery Form: " << shrubberyForm.getName() << std::endl;
+        std::cout << "Initial Robotomy Form: " << robotomyForm.getName() << std::endl;
+        std::cout << "Initial Pardon Form: " << pardonForm.getName() << std::endl;
 
         bureaucrat.signForm(shrubberyForm);
         bureaucrat.signForm(robotomyForm);

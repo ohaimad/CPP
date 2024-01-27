@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:15 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/27 02:12:39 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/27 15:36:31 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,18 @@ void Bureaucrat::decrementGrade() {
 void Bureaucrat::signForm(AForm& form) {
     try {
         form.beSigned(*this);
-        std::cout << *this << " signed " << form << std::endl;
+        std::cout << *this << " signed " << form.getName() << std::endl;
     } catch (const std::exception& e) {
-        std::cout << *this << " couldn't sign " << form << " because " << e.what() << std::endl;
+        std::cout << *this << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
     }
 }
 
 void Bureaucrat::executeForm(AForm const & form) {
     try {
         form.execute(*this);
-        std::cout << *this << " executed " << form << std::endl;
+        std::cout << *this << " executed " << form.getName() << std::endl;
     } catch (const std::exception& e) {
-        std::cout << *this << " couldn't execute " << form << " because " << e.what() << std::endl;
+        std::cout << *this << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
     }
 }
 

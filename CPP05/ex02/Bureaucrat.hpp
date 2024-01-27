@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:21 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/27 15:00:55 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/27 15:15:00 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ public:
 
     void executeForm(AForm const & form);
 
-    friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 };
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif // BUREAUCRAT_HPP
