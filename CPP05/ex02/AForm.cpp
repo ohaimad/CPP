@@ -6,12 +6,14 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:07 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/28 00:35:08 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/28 00:40:34 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+
+
 
 const char* AForm::GradeTooHighException::what() const throw() {
     return "Grade is too high!";
