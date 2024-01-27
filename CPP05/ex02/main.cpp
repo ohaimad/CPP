@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:38 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/27 15:38:13 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/27 16:45:21 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 
 int main() {
     try {
-        Bureaucrat bureaucrat("John Doe", 50);
+        Bureaucrat bureaucrat("John Doe", 5);
         ShrubberyCreationForm shrubberyForm("Home");
         RobotomyRequestForm robotomyForm("Target");
         PresidentialPardonForm pardonForm("Criminal");
 
-        std::cout << "Initial Bureaucrat: " << bureaucrat << std::endl;
+        std::cout << "Initial Bureaucrat: " << bureaucrat.getName() << std::endl;
         std::cout << "Initial Shrubbery Form: " << shrubberyForm.getName() << std::endl;
         std::cout << "Initial Robotomy Form: " << robotomyForm.getName() << std::endl;
         std::cout << "Initial Pardon Form: " << pardonForm.getName() << std::endl;

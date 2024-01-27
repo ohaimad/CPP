@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:27 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/27 15:29:51 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/27 15:53:39 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,10 @@ void Form::beSigned(const Bureaucrat& bureaucrat) {
         throw GradeTooLowException();
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& form) {
-    os << "Form: " << form.getName()
-       << ", Signed: " << (form.isSigned() ? "Yes" : "No")
-       << ", Grade to Sign: " << form.getGradeToSign()
-       << ", Grade to Execute: " << form.getGradeToExecute();
-    return os;
-}
+// std::ostream& operator<<(std::ostream& os, const Form& form) {
+//     os << "Form: " << form.getName()
+//        << ", Signed: " << (form.isSigned() ? "Yes" : "No")
+//        << ", Grade to Sign: " << form.getGradeToSign()
+//        << ", Grade to Execute: " << form.getGradeToExecute();
+//     return os;
+// }

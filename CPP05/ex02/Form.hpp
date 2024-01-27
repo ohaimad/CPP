@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:32 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/26 22:02:34 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/27 15:51:23 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ public:
     void beSigned(const Bureaucrat& bureaucrat);
 
 };
-std::ostream& operator<<(std::ostream& os, const Form& form);
+// std::ostream& operator<<(std::ostream& os, const Form& form);
 
 #endif
 
