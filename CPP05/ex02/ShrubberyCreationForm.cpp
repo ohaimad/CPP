@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:57 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/27 16:44:14 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/28 17:14:37 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,18 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
     std::ofstream outputFile(filename.c_str());
 
     if (outputFile.is_open()) {
-        outputFile << "   *\n";
-        outputFile << "  ***\n";
-        outputFile << " *****\n";
-        outputFile << "*******\n";
-        outputFile << "   |\n";
+        outputFile << "        *\n";
+        outputFile << "       ***\n";
+        outputFile << "      *****\n";
+        outputFile << "     *******\n";
+        outputFile << "    *********\n";
+        outputFile << "   ***********\n";
+        outputFile << "  *************\n";
+        outputFile << " ***************\n";
+        outputFile << "  *************\n";
+        outputFile << " ***************\n";
+        outputFile << "*****************\n";
+        outputFile << "        |\n";
         outputFile.close();
     } else {
         std::cerr << "Failed to open file: " << filename << std::endl;
