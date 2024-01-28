@@ -6,12 +6,19 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:01:17 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/27 15:58:29 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/28 17:09:26 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "Bureaucrat.hpp"
+
+Bureaucrat::Bureaucrat() : name("default"), grade(150) {}
+Bureaucrat::Bureaucrat(const Bureaucrat& copy) : name(copy.name), grade(copy.grade) {}
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
+    grade = obj.grade;
+    return *this;
+}
+Bureaucrat::~Bureaucrat() {}
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
     return "Grade is too high!";

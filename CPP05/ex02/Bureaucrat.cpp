@@ -6,12 +6,19 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:15 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/28 00:35:26 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/28 17:09:59 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+
+Bureaucrat::Bureaucrat() : name("default"), grade(150) {}
+Bureaucrat::Bureaucrat(const Bureaucrat& copy) : name(copy.name), grade(copy.grade) {}
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
+    grade = obj.grade;
+    return *this;
+}
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
     return "Grade is too high!";
@@ -68,4 +75,3 @@ void Bureaucrat::executeForm(AForm const & form) {
         std::cout << this->getName() << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
     }
 }
-

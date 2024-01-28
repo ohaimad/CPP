@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:21 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/28 00:35:33 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/28 17:03:02 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ private:
     int grade;
 
 public:
+    Bureaucrat();
+    Bureaucrat(const Bureaucrat& copy);
+    Bureaucrat& operator=(const Bureaucrat& obj);
+
     class GradeTooHighException : public std::exception {
         virtual const char* what() const throw();
     };

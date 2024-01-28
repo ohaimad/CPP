@@ -6,13 +6,20 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:01:48 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/27 16:42:01 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/28 17:07:52 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
+Form::Form() : name("default"), signedStatus(false), gradeToSign(150), gradeToExecute(150) {}
+Form::Form(const Form& copy) : name(copy.name), signedStatus(copy.signedStatus), gradeToSign(copy.gradeToSign), gradeToExecute(copy.gradeToExecute) {}
+Form& Form::operator=(const Form& obj) {
+    signedStatus = obj.signedStatus;
+    return *this;
+}
+Form::~Form() {}
 const char* Form::GradeTooHighException::what() const throw() {
     return "Grade is too high!";
 }

@@ -6,14 +6,19 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:07 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/28 00:40:34 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/28 17:01:21 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-
+AForm::AForm() : name("default"), signedStatus(false), gradeToSign(150), gradeToExecute(150) {}
+AForm::AForm(const AForm& copy) : name(copy.name), signedStatus(copy.signedStatus), gradeToSign(copy.gradeToSign), gradeToExecute(copy.gradeToExecute) {}
+AForm& AForm::operator=(const AForm& obj) {
+    signedStatus = obj.signedStatus;
+    return *this;
+}
 
 const char* AForm::GradeTooHighException::what() const throw() {
     return "Grade is too high!";

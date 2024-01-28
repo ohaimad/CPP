@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:01:54 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/26 22:01:56 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/28 17:06:08 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@ private:
     const int gradeToExecute;
 
 public:
+    Form();
+    Form(const Form& copy);
+    Form& operator=(const Form& obj);
+    virtual ~Form();
     class GradeTooHighException : public std::exception {
         virtual const char* what() const throw();
     };
