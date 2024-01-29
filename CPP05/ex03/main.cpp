@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:38 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/29 18:49:57 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/29 22:12:49 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@
 #include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
 
+// void leaks( void )
+// {
+//     system("leaks Bureaucrat");
+// };
 int main() {
+    // atexit(leaks);
     try {
         Intern intern;
         Bureaucrat bureaucrat("John Doe", 5);
@@ -34,9 +39,12 @@ int main() {
         bureaucrat.executeForm(*robotomyForm);
         bureaucrat.executeForm(*pardonForm);
 
-    } catch (const std::exception& e) {
+        delete robotomyForm;
+        delete pardonForm;
+        // delete shrubberyForm;
+    }
+    catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
-
     return 0;
 }
