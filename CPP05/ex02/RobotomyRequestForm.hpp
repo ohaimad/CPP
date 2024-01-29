@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:54 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/28 00:35:54 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/29 18:51:59 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ private:
 public:
     RobotomyRequestForm(const std::string& target);
 
-    virtual void execute(Bureaucrat const & executor) const;
+    void execute(Bureaucrat const & executor) const;
 };
 
 #endif
