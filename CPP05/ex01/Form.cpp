@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:01:48 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/28 17:07:52 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/31 01:35:43 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Form& Form::operator=(const Form& obj) {
     return *this;
 }
 Form::~Form() {}
+
 const char* Form::GradeTooHighException::what() const throw() {
     return "Grade is too high!";
 }
@@ -52,12 +53,12 @@ int Form::getGradeToExecute() const {
     return gradeToExecute;
 }
 
-void Form::signForm(const Bureaucrat& bureaucrat) {
-    if (bureaucrat.getGrade() <= gradeToSign)
-        signedStatus = true;
-    else
-        throw GradeTooLowException();
-}
+// void Form::signForm(const Bureaucrat& bureaucrat) {
+//     if (bureaucrat.getGrade() <= gradeToSign)
+//         signedStatus = true;
+//     else
+//         throw GradeTooLowException();
+// }
 
 void Form::beSigned(const Bureaucrat& bureaucrat) {
     if (bureaucrat.getGrade() <= gradeToSign)

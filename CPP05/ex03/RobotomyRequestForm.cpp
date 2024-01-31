@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:51 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/30 16:43:53 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/30 16:44:05 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
     AForm::execute(executor);
 
     std::cout << "Making some drilling noises..." << std::endl;
-    
+
     // Simulate 50% success rate
     if (rand() % 2 == 0) {
         std::cout << target << " has been robotomized successfully!" << std::endl;

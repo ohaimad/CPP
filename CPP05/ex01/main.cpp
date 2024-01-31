@@ -6,14 +6,14 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:02 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/26 22:02:04 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/01/31 01:15:26 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-int main() 
+int main()
 {
     try {
         Bureaucrat bureaucrat("John Doe", 50);
