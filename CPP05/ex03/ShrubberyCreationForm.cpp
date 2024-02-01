@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:57 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/29 18:38:27 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/01 14:19:14 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,3 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
         std::cerr << "Failed to open file: " << filename << std::endl;
     }
 }
-

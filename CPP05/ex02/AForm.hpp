@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:10 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/28 16:51:57 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/01 14:22:39 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ public:
     int getGradeToSign() const;
 
     int getGradeToExecute() const;
-
-    void signForm(const Bureaucrat& bureaucrat);
 
     void beSigned(const Bureaucrat& bureaucrat);
 

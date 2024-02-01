@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:38 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/29 22:12:49 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/01 14:17:41 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 // {
 //     system("leaks Bureaucrat");
 // };
+
 int main() {
     // atexit(leaks);
     try {
@@ -29,7 +30,6 @@ int main() {
         // AForm* shrubberyForm = intern.makeForm("shrubbery creation", "Home");
         AForm* robotomyForm = intern.makeForm("robotomy request", "Target");
         AForm* pardonForm = intern.makeForm("presidential pardon", "Criminal");
-
 
         // bureaucrat.signForm(*shrubberyForm);
         bureaucrat.signForm(*robotomyForm);
