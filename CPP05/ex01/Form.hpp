@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:01:54 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/31 01:35:49 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/05 00:36:03 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,7 @@ public:
     bool isSigned() const;
     int getGradeToSign() const;
     int getGradeToExecute() const;
-    // void signForm(const Bureaucrat& bureaucrat);
     void beSigned(const Bureaucrat& bureaucrat);
-
 };
 std::ostream& operator<<(std::ostream& os, const Form& form);
 

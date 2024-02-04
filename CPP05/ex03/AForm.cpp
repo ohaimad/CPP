@@ -6,15 +6,15 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/26 22:02:07 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/01 14:22:16 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/05 00:27:41 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
-#include "Bureaucrat.hpp"
 
 AForm::AForm() : name("default"), signedStatus(false), gradeToSign(150), gradeToExecute(150) {}
 AForm::AForm(const AForm& copy) : name(copy.name), signedStatus(copy.signedStatus), gradeToSign(copy.gradeToSign), gradeToExecute(copy.gradeToExecute) {}
+AForm::~AForm() {}
 AForm& AForm::operator=(const AForm& obj) {
     signedStatus = obj.signedStatus;
     return *this;
@@ -38,13 +38,14 @@ const char* AForm::GradeTooLowToExecuteException::what() const throw() {
 
 AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute)
     : name(name), signedStatus(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute) {
-    if (gradeToSign < 1 || gradeToSign > 150)
+    if (gradeToSign < 1)
         throw GradeTooHighException();
-    if (gradeToExecute < 1 || gradeToExecute > 150)
+    else if(gradeToSign > 150)
+        throw GradeTooLowException();
+    else if (gradeToExecute < 1)
         throw GradeTooHighException();
-}
-
-AForm::~AForm() {
+    else if(gradeToExecute > 150)
+        throw GradeTooLowException();
 }
 
 const std::string& AForm::getName() const {
@@ -73,14 +74,6 @@ void AForm::beSigned(const Bureaucrat& bureaucrat) {
 void AForm::execute(Bureaucrat const & executor) const {
     if (!isSigned())
         throw FormNotSignedException();
-    if (executor.getGrade() > gradeToExecute)
+    if (executor.getGrade() >= gradeToExecute)
         throw GradeTooLowToExecuteException();
-}
-
-std::ostream& operator<<(std::ostream& os, const AForm& form) {
-    os << "Form: " << form.getName()
-       << ", Signed: " << (form.isSigned() ? "Yes" : "No")
-       << ", Grade to Sign: " << form.getGradeToSign()
-       << ", Grade to Execute: " << form.getGradeToExecute();
-    return os;
 }

@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 17:22:07 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/01/29 22:03:01 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/04 23:36:07 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 Intern::Intern() {}
 Intern::Intern(const Intern& copy) { *this = copy; }
+Intern::~Intern() {}
 Intern& Intern::operator=(const Intern& obj) {
     (void)obj;
     return *this;
 }
-Intern::~Intern() {}
-
 
 AForm* Intern::makeForm(const std::string& formName, const std::string& target) {
     AForm* form = NULL;
