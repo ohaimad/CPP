@@ -6,23 +6,24 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 00:21:38 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/07 02:46:52 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/07 02:54:55 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-void ScalarConverter::convert(const std::string& literal) {
+void ScalarConverter::convert(const std::string& literal) 
+{
     std::istringstream iss(literal);
     double value;
     bool isFloatLiteral = false;
 
     if (!literal.empty() && literal[literal.size() - 1] == 'f')
         isFloatLiteral = true;
-
-    // std::cout << "---->" << literal << std::endl;
-    // iss >> value;
-    // std::cout << "---->" << value << std::endl;
+    std::atof(literal.c_str());
+    std::cout << "---->" << literal << std::endl;
+    iss >> value;
+    std::cout << "---->" << value << std::endl;
     if (iss >> value)
     {
         // Conversion to Char
@@ -54,22 +55,20 @@ void ScalarConverter::convert(const std::string& literal) {
             else
             {
                 // Check for infinite values
-                if (!isfinite(floatValue)) {
+                if (!isfinite(floatValue)) 
+                {
                     std::cout << "float: ";
                     if (value < 0)
                         std::cout << "-";
                     std::cout << "inf" << "f" << std::endl;
-                } 
+                }
                 else
                     std::cout << "float: " << std::fixed << std::setprecision(1) << floatValue << "f" << std::endl;
             }
         }
-
-        // Conversion to double
         std::cout << "double: " << value << std::endl;
     } 
     else {
-        // Handle invalid conversion
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: impossible" << std::endl;
