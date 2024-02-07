@@ -6,72 +6,83 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 00:21:38 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/07 02:54:55 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/08 00:19:15 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-void ScalarConverter::convert(const std::string& literal) 
+void ScalarConverter::convert(const std::string& literal)
 {
     std::istringstream iss(literal);
     double value;
-    bool isFloatLiteral = false;
+    char *convert;
 
-    if (!literal.empty() && literal[literal.size() - 1] == 'f')
-        isFloatLiteral = true;
-    std::atof(literal.c_str());
-    std::cout << "---->" << literal << std::endl;
-    iss >> value;
-    std::cout << "---->" << value << std::endl;
-    if (iss >> value)
+    value = std::strtod(literal.c_str() , &convert);
+    if (value == 0 && std::strlen(convert) == 1 && !std::isdigit(convert[0])) 
+        convertToChar(value, convert, literal);
+    else if(literal.find('.') == std::string::npos && !convert[0])
+        convertToInt(value, convert, literal);
+    else if (literal.find('.') != std::string::npos && convert[0] == 'f')
+        convertToFloat(value, convert, literal);
+    else if (literal.find('.') != std::string::npos && !convert[0])
+        convertToDouble(value, convert, literal);
+    else
     {
-        // Conversion to Char
-        if (value >= std::numeric_limits<char>::min() && value <= std::numeric_limits<char>::max()) 
-        {
-            char charValue = static_cast<char>(value);
-            if (isprint(charValue))
-                std::cout << "char: '" << charValue << "'" << std::endl;
-            else
-                std::cout << "char: Non displayable" << std::endl;
-        }
-        else
-            std::cout << "char: impossible" << std::endl;
-
-        // Conversion to int
-        if (value >= std::numeric_limits<int>::min() && value <= std::numeric_limits<int>::max())
-            std::cout << "int: " << static_cast<int>(value) << std::endl;
-        else
-            std::cout << "int: impossible" << std::endl;
-
-        // Conversion to float
-        if (isFloatLiteral)
-            std::cout << "float: " << value << "f" << std::endl;
-        else 
-        {
-            float floatValue = static_cast<float>(value);
-            if (value != value)
-                std::cout << "float: nanf" << std::endl;
-            else
-            {
-                // Check for infinite values
-                if (!isfinite(floatValue)) 
-                {
-                    std::cout << "float: ";
-                    if (value < 0)
-                        std::cout << "-";
-                    std::cout << "inf" << "f" << std::endl;
-                }
-                else
-                    std::cout << "float: " << std::fixed << std::setprecision(1) << floatValue << "f" << std::endl;
-            }
-        }
-        std::cout << "double: " << value << std::endl;
-    } 
-    else {
-        std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
+        std::cout << "char: impossible" << std::endl;
         std::cout << "float: impossible" << std::endl;
         std::cout << "double: impossible" << std::endl;
     }
+}
+
+void convertToChar(double value, char *convert, std::string input)
+{
+    if (isprint(convert[0]))
+        std::cout << "char: '" << convert << "'" << std::endl;
+    else if (!isprint(convert[0]))
+        std::cout << "char: Non displayable" << std::endl;
+    else
+        std::cout << "char: impossible" << std::endl;
+    std::cout << "int: " << static_cast<int>(*input.c_str()) << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(*input.c_str()) << "f" <<  std::endl;
+    std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(*input.c_str()) << std::endl;
+}
+
+void convertToInt(double value, char *convert, std::string input)
+{
+    if (value < INT_MIN && value > INT_MAX)
+        std::cout << "int: impossible" << std::endl;
+    else
+    {
+        std::cout << "int: " << static_cast<int>(value) << std::endl;
+        if (isprint(static_cast<int>(value)))
+            std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
+        else
+            std::cout << "char: Non displayable" << std::endl;
+        std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" <<  std::endl;
+        std::cout << "double: " << std::fixed << std::setprecision(1) << (value) << std::endl;   
+    }
+}
+
+void convertToFloat(double value ,char *convert, std::string input)
+{
+    std::cout << "int: " << static_cast<int>(value) << std::endl;
+    if (isprint(static_cast<int>(value)))
+        std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
+    else
+        std::cout << "char: Non displayable" << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" << std::endl;
+    std::cout << "double: " << std::fixed << std::setprecision(1) << (value) << std::endl;    
+}
+
+void convertToDouble(double value, char *convert, std::string input)
+{
+    std::cout << "int: " << static_cast<int>(value) << std::endl;
+    if (isprint(static_cast<int>(value)))
+        std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
+    else
+        std::cout << "char: Non displayable" << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" <<  std::endl;
+    std::cout << "double: " << std::fixed << std::setprecision(1) << (value) << std::endl;
 }

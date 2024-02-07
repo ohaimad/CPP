@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 00:21:45 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/07 02:54:05 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/08 00:05:54 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ class ScalarConverter {
     public:
         static void convert(const std::string& literal);
 };
+
+void convertToChar(double value, char *convert, std::string input);
+void convertToInt(double value, char *convert, std::string input);
+void convertToFloat(double value ,char *convert, std::string input);
+void convertToDouble(double value, char *convert, std::string input);
 
 #endif
 
