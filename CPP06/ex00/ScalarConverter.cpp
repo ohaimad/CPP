@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 00:21:38 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/06 22:16:55 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/07 02:46:52 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void ScalarConverter::convert(const std::string& literal) {
     if (!literal.empty() && literal[literal.size() - 1] == 'f')
         isFloatLiteral = true;
 
-    std::cout << "---->" << literal << std::endl;
-    iss >> value;
-    std::cout << "---->" << value << std::endl;
-    // if (iss >> value)
-    // {
+    // std::cout << "---->" << literal << std::endl;
+    // iss >> value;
+    // std::cout << "---->" << value << std::endl;
+    if (iss >> value)
+    {
         // Conversion to Char
         if (value >= std::numeric_limits<char>::min() && value <= std::numeric_limits<char>::max()) 
         {
@@ -61,18 +61,18 @@ void ScalarConverter::convert(const std::string& literal) {
                     std::cout << "inf" << "f" << std::endl;
                 } 
                 else
-                    std::cout << "float: " << floatValue << "f" << std::endl;
+                    std::cout << "float: " << std::fixed << std::setprecision(1) << floatValue << "f" << std::endl;
             }
         }
 
         // Conversion to double
         std::cout << "double: " << value << std::endl;
-    // } 
-    // else {
-    //     // Handle invalid conversion
-    //     std::cout << "char: impossible" << std::endl;
-    //     std::cout << "int: impossible" << std::endl;
-    //     std::cout << "float: impossible" << std::endl;
-    //     std::cout << "double: impossible" << std::endl;
-    // }
+    } 
+    else {
+        // Handle invalid conversion
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: impossible" << std::endl;
+        std::cout << "double: impossible" << std::endl;
+    }
 }

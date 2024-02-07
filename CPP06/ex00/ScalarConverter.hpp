@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 00:21:45 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/06 19:58:10 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/07 02:46:30 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <sstream>
 #include <limits>
 #include <cmath>
+#include <iomanip>
 
 
 class ScalarConverter {
