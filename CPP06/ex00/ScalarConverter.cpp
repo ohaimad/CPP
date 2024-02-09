@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 00:21:38 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/09 00:02:15 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/09 01:11:33 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void ScalarConverter::convert(const std::string& literal)
     value = std::strtod(literal.c_str() , &convert);
     if (value == 0 && std::strlen(convert) == 1 && !std::isdigit(convert[0]))
         convertToChar(convert, literal);
-    else if(literal.find('.') == std::string::npos && !convert[0])
+    else if(!convert[0] && !convert[1])
         convertToInt(value);
-    else if (literal.find('.') != std::string::npos && convert[0] == 'f')
-        convertToFloat(value);
+    else if (literal.find('.') != std::string::npos && convert[0] == 'f' && !convert[1])
+        convertToFD(value);
     else if (literal.find('.') != std::string::npos && !convert[0])
-        convertToDouble(value);
+        convertToFD(value);
     else
     {
         std::cout << "int: impossible" << std::endl;
@@ -70,28 +70,7 @@ void convertToInt(double value)
     }
 }
 
-void convertToFloat(double value)
-{
-    if (value < INT_MIN || value > INT_MAX)
-    {
-        std::cout << "int: impossible" << std::endl;
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" <<  std::endl;
-        std::cout << "double: " << std::fixed << std::setprecision(1) << (value) << std::endl;   
-    }
-    else
-    {
-        std::cout << "int: " << static_cast<int>(value) << std::endl;
-        if (isprint(static_cast<int>(value)))
-            std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
-        else
-            std::cout << "char: Non displayable" << std::endl;
-        std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" <<  std::endl;
-        std::cout << "double: " << std::fixed << std::setprecision(1) << (value) << std::endl;   
-    }
-}
-
-void convertToDouble(double value)
+void convertToFD(double value)
 {
     if (value < INT_MIN || value > INT_MAX)
     {
