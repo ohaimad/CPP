@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 00:21:38 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/09 16:57:46 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/09 21:36:01 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ void ScalarConverter::convert(const std::string& literal)
     char *convert;
 
     value = std::strtod(literal.c_str() , &convert);
-    std::cout << convert[0] << std::endl;
     if (value == 0 && std::strlen(convert) == 1 && !std::isdigit(convert[0]))
         convertToChar(convert, literal);
-    else if(!convert[0] || std::isnan(value) || (std::isnan(value) && convert[0] == 'f'))
+    else if(!convert[0] || std::isnan(value) || (std::isnan(value) && convert[0] == 'f') || (std::isinf(value) && convert[0] == 'f'))
         convertToInt(value);
     else if (literal.find('.') != std::string::npos && convert[0] == 'f' && !convert[1])
         convertToFD(value);
