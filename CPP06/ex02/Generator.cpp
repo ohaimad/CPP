@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 22:42:55 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/06 22:45:28 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/09 15:58:24 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ Base* Generator::generate()
         case 2:
             return new C();
         default:
-            return nullptr;
+            return NULL;
     }
 }
