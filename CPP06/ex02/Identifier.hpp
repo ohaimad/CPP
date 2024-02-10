@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 22:42:38 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/06 22:44:42 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/09 23:17:31 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,4 @@ public:
     static void identify(Base& p);
 };
 
-#endif // IDENTIFIER_HPP
+#endif
