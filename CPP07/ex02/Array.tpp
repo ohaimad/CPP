@@ -6,11 +6,11 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 02:27:23 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/13 02:31:01 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/13 16:04:56 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Array.hpp"
 
 template<typename T>
 Array<T>::Array() : elements(NULL), length(0) {}
@@ -40,4 +40,30 @@ Array<T>& Array<T>::operator=(const Array& other) {
         }
     }
     return *this;
+}
+
+template<typename T>
+Array<T>::~Array() {
+    delete[] elements;
+}
+
+template<typename T>
+T& Array<T>::operator[](size_t index) {
+    if (index >= length) {
+        throw std::out_of_range("Index out of range");
+    }
+    return elements[index];
+}
+
+template<typename T>
+const T& Array<T>::operator[](size_t index) const {
+    if (index >= length) {
+        throw std::out_of_range("Index out of range");
+    }
+    return elements[index];
+}
+
+template<typename T>
+size_t Array<T>::size() const {
+    return length;
 }
