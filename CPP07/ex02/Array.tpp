@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 02:27:23 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/13 16:04:56 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/14 22:54:39 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ Array<T>::~Array() {
 
 template<typename T>
 T& Array<T>::operator[](size_t index) {
-    if (index >= length) {
+    if (index > length) {
         throw std::out_of_range("Index out of range");
     }
     return elements[index];
@@ -57,7 +57,7 @@ T& Array<T>::operator[](size_t index) {
 
 template<typename T>
 const T& Array<T>::operator[](size_t index) const {
-    if (index >= length) {
+    if (index > length) {
         throw std::out_of_range("Index out of range");
     }
     return elements[index];

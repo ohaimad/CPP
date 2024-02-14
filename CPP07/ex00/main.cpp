@@ -6,27 +6,56 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 23:42:05 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/13 01:40:53 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/14 23:01:47 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "templates.hpp"
 
-int main() 
+// int main() 
+// {
+//     int a = 2;
+//     int b = 3;
+//     ::swap(a, b);
+//     std::cout << "a = " << a << ", b = " << b << std::endl;
+//     std::cout << "min(a, b) = " << ::min(a, b) << std::endl;
+//     std::cout << "max(a, b) = " << ::max(a, b) << std::endl;
+
+//     const char* c = "chaine1";
+//     const char* d = "chaine2";
+//     ::swap(c, d);
+//     std::cout << "c = " << c << ", d = " << d << std::endl;
+//     std::cout << "min(c, d) = " << ::min(c, d) << std::endl;
+//     std::cout << "max(c, d) = " << ::max(c, d) << std::endl;
+
+//     return 0;
+// }
+
+class Awesome
 {
-    int a = 2;
-    int b = 3;
-    ::swap(a, b);
-    std::cout << "a = " << a << ", b = " << b << std::endl;
-    std::cout << "min(a, b) = " << ::min(a, b) << std::endl;
-    std::cout << "max(a, b) = " << ::max(a, b) << std::endl;
+  public:
+    Awesome(void) : _n(0) {}
+    Awesome( int n ) : _n( n ) {}
+    Awesome & operator= (Awesome & a) { _n = a._n; return *this; }
+    bool operator==( Awesome const & rhs ) const { return (this->_n == rhs._n); }
+    bool operator!=( Awesome const & rhs ) const{ return (this->_n != rhs._n); }
+    bool operator>( Awesome const & rhs ) const { return (this->_n > rhs._n); }
+    bool operator<( Awesome const & rhs ) const { return (this->_n < rhs._n); }
+    bool operator>=( Awesome const & rhs ) const { return (this->_n >= rhs._n); }
+    bool operator<=( Awesome const & rhs ) const { return (this->_n <= rhs._n); }
+    int get_n() const { return _n; }
+  private:
+    int _n;
+};
+std::ostream & operator<<(std::ostream & o, const Awesome &a) { o << a.get_n(); return o; }
 
-    const char* c = "chaine1";
-    const char* d = "chaine2";
-    ::swap(c, d);
-    std::cout << "c = " << c << ", d = " << d << std::endl;
-    std::cout << "min(c, d) = " << ::min(c, d) << std::endl;
-    std::cout << "max(c, d) = " << ::max(c, d) << std::endl;
+int main(void)
+{
+	Awesome a(2), b(4);
 
-    return 0;
+        swap(a, b);
+        std::cout << a << " " << b << std::endl;
+        std::cout << max(a, b) << std::endl;
+        std::cout << min(a, b) << std::endl;
+        return (0);
 }
