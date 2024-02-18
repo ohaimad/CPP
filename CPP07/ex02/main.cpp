@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 23:42:05 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/14 22:59:45 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/18 02:19:17 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main(int, char**)
     }
     try
     {
-        numbers[-2] = 0;
+        numbers[2] = 0;
     }
     catch(const std::exception& e)
     {
