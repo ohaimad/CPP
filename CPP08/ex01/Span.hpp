@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:11:11 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/20 13:13:57 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/26 22:18:25 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,16 @@ private:
     unsigned int maxSize;
 
 public:
+    Span();
+    Span(const Span& copy);
+    Span& operator=(const Span& obj);
+    ~Span();
+
     Span(unsigned int N);
-
     void addNumber(int num);
-
-    int shortestSpan() const;
-
-    int longestSpan() const;
+    int shortestSpan();
+    int longestSpan();
+    void    addNumbers(const std::vector<int>& nums);
 };
 
 #endif 
