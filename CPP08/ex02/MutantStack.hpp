@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 02:55:08 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/24 03:18:14 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/25 17:02:29 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ public:
     reverse_iterator rbegin();
     reverse_iterator rend();
 };
-
 
 template<typename T>
 typename MutantStack<T>::iterator MutantStack<T>::begin() {

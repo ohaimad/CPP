@@ -6,13 +6,14 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:11:27 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/24 03:18:21 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/02/25 17:00:41 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 
-int main() {
+int main() 
+{
     MutantStack<int> mstack;
     mstack.push(5);
     mstack.push(17);
