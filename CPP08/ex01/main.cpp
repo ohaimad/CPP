@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 13:11:27 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/02/26 22:40:45 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/03/07 11:49:23 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int main()
 
         std::vector<int> nums;
         nums.push_back(1);
-        nums.push_back(3);
         nums.push_back(3);
         span.addNumbers(nums);
 
