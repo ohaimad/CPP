@@ -55,11 +55,10 @@ void BitcoinExchange::processInputFile(const std::string& inputFile)
             {
                 std::string closestDate = getClosestDate(date);
                 float exchangeRate = exchangeRates[closestDate];
+
                 float result = value * exchangeRate;
                 std::cout << date << " => " << value << " = " << result << std::endl;
             }
-            else
-                std::cerr << "Error: bad input => " << line << std::endl;
         }
         else
             std::cerr << "Error: bad input => " << line << std::endl;
@@ -88,7 +87,7 @@ bool BitcoinExchange::isValidValue(float value) const
 {
     if (value < 0)
     {
-        std::cerr << "Error: not a positive number "<< std::endl;
+        std::cerr << "Error: not a positive number." << std::endl;
         return false;
     }
     else if (value > 1000)
@@ -101,21 +100,20 @@ bool BitcoinExchange::isValidValue(float value) const
 
 std::string BitcoinExchange::getClosestDate(const std::string& date) const
 {
-    std::map<std::string, float>::const_iterator it =  exchangeRates.lower_bound(date);
-    if (it == exchangeRates.begin())
-        return it->first;
-    else if (it == exchangeRates.end())
-    {
-        --it;
-        return it->first;
-    }
-    else
-    {
-        std::map<std::string, float>::const_iterator prev = it;
-        --prev;
-        if (date.compare(prev->first) - date.compare(it->first) > 0)
+        std::map<std::string, float>::const_iterator it = exchangeRates.lower_bound(date);
+        if (it == exchangeRates.begin())
             return it->first;
+        else if (it == exchangeRates.end())
+        {
+            std::map<std::string, float>::const_iterator temp = it;
+            --temp;
+            return temp->first;
+        }
         else
-            return prev->first;
-    }
+        {
+            --it;
+            return it->first; 
+        }
+
+
 }
