@@ -13,11 +13,6 @@ BitcoinExchange::BitcoinExchange()
 
     std::string line;
     std::getline(file, line);
-    if (line != "date | value")
-    {
-        std::cerr << "Error: bad input => " << line << std::endl;
-        return;
-    }
 
     while (std::getline(file, line))
     {
@@ -25,19 +20,9 @@ BitcoinExchange::BitcoinExchange()
         std::string date;
         float value;
 
-        if (std::getline(iss, date, '|') && iss >> value)
-        {
-            if (isValidDate(date) && isValidValue(value))
-            {
+        if (std::getline(iss, date, ',') && iss >> value)
                 exchangeRates[date] = value;
-            }
-            else
-                std::cerr << "Error: bad input => " << line << std::endl;
-        }
-        else
-            std::cerr << "Error: bad input => " << line << std::endl;
     }
-
     file.close();
 }
 
@@ -110,7 +95,6 @@ bool BitcoinExchange::isValidValue(float value) const
 std::string BitcoinExchange::getClosestDate(const std::string& date) const
 {
     std::map<std::string, float>::const_iterator it =  exchangeRates.lower_bound(date);
-    std::cout << "it->first: " << exchangeRates.begin()->first << std::endl;
     if (it == exchangeRates.begin())
         return it->first;
     else if (it == exchangeRates.end())
