@@ -64,16 +64,13 @@ void BitcoinExchange::processInputFile(const std::string& inputFile)
         else
             std::cerr << "Error: bad input => " << line << std::endl;
     }
-
     file.close();
 }
 
 bool BitcoinExchange::isValidDate(const std::string& date) const
 {
-    // Check if the date is in the format "YYYY-MM-DD"
     if (date.size() != 11)
         return false;
-    // Check if the year, month, and day components are numeric
     if (!std::isdigit(date[0]) || !std::isdigit(date[1]) ||
         !std::isdigit(date[2]) || !std::isdigit(date[3]) ||
         date[4] != '-' ||
@@ -89,7 +86,17 @@ bool BitcoinExchange::isValidDate(const std::string& date) const
 
 bool BitcoinExchange::isValidValue(float value) const
 {
-    return (value >= 0 && value <= 1000);
+    if (value < 0)
+    {
+        std::cerr << "Error: not a positive number "<< std::endl;
+        return false;
+    }
+    else if (value > 1000)
+    {
+        std::cerr << "Error: too large a number." << std::endl;
+        return false;
+    }
+    return (true);
 }
 
 std::string BitcoinExchange::getClosestDate(const std::string& date) const
