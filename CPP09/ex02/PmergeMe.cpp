@@ -1,7 +1,9 @@
 #include "PmergeMe.hpp"
 
 PmergeMe::PmergeMe() {}
-PmergeMe::PmergeMe(const PmergeMe& copy) : {}
+PmergeMe::PmergeMe(const PmergeMe& copy){
+     *this = copy;
+}
 PmergeMe::~PmergeMe() {}
 PmergeMe& PmergeMe::operator=(const PmergeMe& obj) {
     if (this != &obj) {
@@ -13,6 +15,7 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& obj) {
     return *this;
 }
 
+// geters and setters
 const std::vector<int>& PmergeMe::getMainChain() const {
     return main_chain;
 }
@@ -44,7 +47,7 @@ void PmergeMe::setLast(int lastValue) {
 void PmergeMe::setVecTime(double time) {
     vec_time = time;
 }
-
+//  step 1    
 int PmergeMe::ft_sort(std::vector<std::pair<int, int> >& nbrs)
 {
     for (size_t i = 0; i + 1 < nbrs.size() ; i++)
@@ -76,7 +79,7 @@ void PmergeMe::recursive_sort(std::vector<std::pair<int, int> >& vec)
         recursive_sort(vec);
     }
 }
-
+// step 2 - 3
 std::vector <std::pair<int, int> > PmergeMe::cutting_2(std::vector<int> numbers)
 {
     std::vector <std::pair<int, int> > vector;
@@ -113,3 +116,5 @@ int is_digits(std::string nb)
     }
     return 1;
 }
+
+// step 4

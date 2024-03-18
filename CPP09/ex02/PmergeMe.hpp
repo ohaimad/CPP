@@ -31,7 +31,7 @@ class PmergeMe {
         void setLast(int last);
         void setVecTime(double time);
         // fonctions
-        bool PmergeMe::ft_sort(std::vector<std::pair<int, int> >& tmp);
+        int PmergeMe::ft_sort(std::vector<std::pair<int, int> >& nbrs);
         void PmergeMe::recursive_sort(std::vector<std::pair<int, int> >& vec);
         std::vector <std::pair<int, int> > cutting_2(std::vector<int> numbers);
 };
