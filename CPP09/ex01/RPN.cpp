@@ -67,7 +67,7 @@ int evaluate(const std::string& expression)
     }
     else 
     {
-            std::cout << "S4 \n"<< std::endl;
+        std::cout << "S4 \n"<< std::endl;
         std::cout << "Error" << std::endl;
         return 0;
     }

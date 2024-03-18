@@ -1,22 +1,39 @@
-#pragma once
+#ifndef PmergeMe_HPP
+#define PmergeMe_HPP
 
 #include <iostream>
+#include <deque>
 #include <vector>
-#include <algorithm>
-#include <sstream>
-#include <iterator>
+#include <iomanip> 
 #include <ctime>
-#include <cctype>
-#include <string>
 
-// Function to print the elements of a vector
-void printVector(const std::vector<int>& vec);
+class PmergeMe {
+    private:
+        std::vector <int> main_chain;
+        bool odd;
+        int last;
+        double vec_time;
+    public:
+        PmergeMe();
+        PmergeMe(const PmergeMe& other);
+        ~PmergeMe();
+        PmergeMe& operator=(const PmergeMe& other);
 
-// Merge function for merge-insert sort
-void merge(std::vector<int>& nums, std::vector<int>& temp, int left, int mid, int right);
+        // Getters
+        const std::vector<int>& getMainChain() const;
+        bool isOdd() const;
+        int getLast() const;
+        double getVecTime() const;
 
-// Merge-Insert Sort Algorithm
-void mergeInsertSort(std::vector<int>& nums);
+        // Setters
+        void setMainChain(const std::vector<int>& chain);
+        void setOdd(bool isOdd);
+        void setLast(int last);
+        void setVecTime(double time);
+        // fonctions
+        bool PmergeMe::ft_sort(std::vector<std::pair<int, int> >& tmp);
+        void PmergeMe::recursive_sort(std::vector<std::pair<int, int> >& vec);
+        std::vector <std::pair<int, int> > cutting_2(std::vector<int> numbers);
+};
 
-int ft_atoi(const std::string& str);
-int main(int ac, char** av);
+#endif

@@ -1,91 +1,115 @@
 #include "PmergeMe.hpp"
 
-int ft_atoi(const std::string& str)
-{
-    int i = 0;
-    int sign = 1;
-    int result = 0;
-
-    // Skip whitespace characters
-    while (std::isspace(str[i]))
-        i++;
-
-    // Check for sign
-    if (str[i] == '+' || str[i] == '-')
-    {
-        if (str[i] == '-')
-            sign = -1;
-        i++;
+PmergeMe::PmergeMe() {}
+PmergeMe::PmergeMe(const PmergeMe& copy) : {}
+PmergeMe::~PmergeMe() {}
+PmergeMe& PmergeMe::operator=(const PmergeMe& obj) {
+    if (this != &obj) {
+        this->vec_time = obj.vec_time;
+        this->main_chain = obj.main_chain;
+        this->last = obj.last;
+        this->odd = obj.odd;
     }
-
-    // Convert digits to integer
-    while (std::isdigit(str[i]))
-    {
-        result = result * 10;
-        result += str[i] - '0';
-        i++;
-    }
-    if(str[i] != '\0')
-    {
-        std::cout << "EXIT" << std::endl;
-        exit(1);
-    }
-    return result * sign;
+    return *this;
 }
 
-// Function to print the elements of a vector
-void printVector(const std::vector<int>& vec)
-{
-    std::vector<int>::const_iterator it;
-    for (it = vec.begin(); it != vec.end(); ++it) {
-        std::cout << *it << " ";
-    }
-    std::cout << std::endl;
+const std::vector<int>& PmergeMe::getMainChain() const {
+    return main_chain;
 }
 
-// Merge function for merge-insert sort
-void merge(std::vector<int>& nums, std::vector<int>& temp, int left, int mid, int right)
-{
-    int i = left;
-    int j = mid + 1;
-    int k = left;
-
-    while (i <= mid && j <= right)
-    {
-        if (nums[i] <= nums[j]) {
-            temp[k++] = nums[i++];
-        } else {
-            temp[k++] = nums[j++];
-        }
-    }
-
-    while (i <= mid) {
-        temp[k++] = nums[i++];
-    }
-
-    while (j <= right) {
-        temp[k++] = nums[j++];
-    }
-
-    for (i = left; i <= right; i++) {
-        nums[i] = temp[i];
-    }
+bool PmergeMe::isOdd() const {
+    return odd;
 }
 
-// Merge-Insert Sort Algorithm
-void mergeInsertSort(std::vector<int>& nums)
-{
-    int n = nums.size();
-    std::vector<int> temp(n);
+int PmergeMe::getLast() const {
+    return last;
+}
 
-    for (int width = 1; width < n; width *= 2)
+double PmergeMe::getVecTime() const {
+    return vec_time;
+}
+
+void PmergeMe::setMainChain(const std::vector<int>& chain) {
+    main_chain = chain;
+}
+
+void PmergeMe::setOdd(bool isOdd) {
+    odd = isOdd;
+}
+
+void PmergeMe::setLast(int lastValue) {
+    last = lastValue;
+}
+
+void PmergeMe::setVecTime(double time) {
+    vec_time = time;
+}
+
+int PmergeMe::ft_sort(std::vector<std::pair<int, int> >& nbrs)
+{
+    for (size_t i = 0; i + 1 < nbrs.size() ; i++)
     {
-        for (int i = 0; i < n; i += 2 * width)
+        if (nbrs[i].first > nbrs[i + 1].first)
         {
-            int left = i;
-            int mid = i + width - 1;
-            int right = std::min(i + 2 * width - 1, n - 1);
-            merge(nums, temp, left, mid, right);
+            std::pair<int, int> tmp = nbrs[i];
+            nbrs[i] = nbrs[i + 1];
+            nbrs[i + 1] = tmp;
+            return 0;
         }
     }
+    return 1;
+}
+
+void PmergeMe::recursive_sort(std::vector<std::pair<int, int> >& vec)
+{
+    if (!ft_sort(vec))
+    {
+        for (size_t i = 0; i + 1 < vec.size(); i++)
+        {
+            if (vec[i].first > vec[i + 1].first) 
+            {
+                std::pair<int, int> tmp = vec[i];
+                vec[i] = vec[i + 1];
+                vec[i + 1] = tmp;
+            }
+        }
+        recursive_sort(vec);
+    }
+}
+
+std::vector <std::pair<int, int> > PmergeMe::cutting_2(std::vector<int> numbers)
+{
+    std::vector <std::pair<int, int> > vector;
+    std::pair<int, int> nb;
+
+    for (size_t i = 0; i + 1 < numbers.size(); i += 2)
+    {
+        // 7 - 8
+        if (numbers[i + 1] < numbers[i])
+        {
+            nb.first = numbers[i];
+            nb.second = numbers[i + 1];
+        }
+        else
+        {
+            nb.first = numbers[i + 1];
+            nb.second = numbers[i];
+        }
+        vector.push_back(nb);
+    }
+    PmergeMe::recursive_sort(vector);
+    return vector;
+}
+
+int is_digits(std::string nb)
+{
+    size_t i = 0;
+    
+    while ( i < nb.length())
+    {
+        if (!isdigit(nb[i]))
+            return 0;
+        i++;
+    }
+    return 1;
 }
