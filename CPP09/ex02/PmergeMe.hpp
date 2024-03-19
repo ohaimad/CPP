@@ -10,6 +10,7 @@
 class PmergeMe {
     private:
         std::vector <int> main_chain;
+        std::vector <int> pend;
         bool odd;
         int last;
         double vec_time;
@@ -21,12 +22,14 @@ class PmergeMe {
 
         // Getters
         const std::vector<int>& getMainChain() const;
+        const std::vector<int>& getPend() const;
         bool isOdd() const;
         int getLast() const;
         double getVecTime() const;
 
         // Setters
         void setMainChain(const std::vector<int>& chain);
+        void setPend(const std::vector<int>& chain);
         void setOdd(bool isOdd);
         void setLast(int last);
         void setVecTime(double time);
