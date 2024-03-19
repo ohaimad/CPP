@@ -1,6 +1,5 @@
 #include "PmergeMe.hpp"
 
-DF
 bool validateInput(char **argv)
 {
     int i = 1;

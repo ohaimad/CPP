@@ -129,27 +129,28 @@ void PmergeMe::main_pend(PmergeMe &obj, std::vector < std::pair<int, int> > vect
         pend.push_back(vec_pair[i].second);
     }
     obj.setMainChain(m_chain);
-    insertElements(vec_pair, pend);
+    jacobsthal(m_chain, pend);
 }
 
 //step 5
-void	insertElements(std::vector<std::pair<int, int> >& vec_pair, std::vector<int>& pend)
+void	jacobsthal(std::vector<int>& vec_pair, std::vector<int>& pend)
 {
-	int preElement;
-	int currElement = 1;
-	int nextElement = 3;
-	while (vec_pair.size() != pend.size() * 2) 
+	int before;
+	int now = 0;
+	int after = 2;
+
+	while (vec_pair.size() != pend.size() * 2)
     {
-		for (int i = nextElement - 1; i > currElement - 1; i--) 
+		for (size_t i = after; i > now ; i--)
         {
-			if (i + 1 <= (int)pend.size()) 
+			if (i <= pend.size())
             {
-				std::vector<int>::iterator low = std::lower_bound(vec_pair.begin(), vec_pair.end(), pend[i].second);
-				vec_pair.insert(low, pend[i].second);
+				std::vector<int>::iterator lower = std::lower_bound(vec_pair.begin(), vec_pair.end(), pend[i]);
+				vec_pair.insert(lower, pend[i]);
 			}
 		}
-		preElement = currElement;
-		currElement = nextElement;
-		nextElement = currElement + (preElement * 2);
+		before = now;
+		now = after;
+		after = now + (before * 2);
 	}
 }

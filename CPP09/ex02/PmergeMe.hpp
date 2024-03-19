@@ -33,10 +33,12 @@ class PmergeMe {
         void setOdd(bool isOdd);
         void setLast(int last);
         void setVecTime(double time);
+
         // fonctions
         int PmergeMe::ft_sort(std::vector<std::pair<int, int> >& nbrs);
         void PmergeMe::recursive_sort(std::vector<std::pair<int, int> >& vec);
         std::vector <std::pair<int, int> > cutting_2(std::vector<int> numbers);
+        void PmergeMe::main_pend(PmergeMe &obj, std::vector < std::pair<int, int> > vectore);
 };
 
 #endif
