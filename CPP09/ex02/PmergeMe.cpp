@@ -104,17 +104,24 @@ std::vector <std::pair<int, int> > PmergeMe::cutting_2(std::vector<int> numbers)
     return vector;
 }
 
-int is_digits(std::string nb)
+// step 4
+
+void PmergeMe::main_pend(PmergeMe &obj, std::vector < std::pair<int, int> > vectore)
 {
-    size_t i = 0;
-    
-    while ( i < nb.length())
+    std::vector <int > m_chain;
+    std::vector <int > pend;
+    std::pair<int, int> pair;
+    std::vector <std::pair<int, int> > vec_pair = vectore;
+
+    m_chain.push_back(vec_pair[0].second);
+    m_chain.push_back(vec_pair[0].first);
+    for(size_t i = 1; i < vec_pair.size(); i++)
     {
-        if (!isdigit(nb[i]))
-            return 0;
-        i++;
+        m_chain.push_back(vec_pair[i].first);
+        pend.push_back(vec_pair[i].second);
     }
-    return 1;
+    obj.setMainChain(m_chain);
 }
 
-// step 4
+
+//step 5 

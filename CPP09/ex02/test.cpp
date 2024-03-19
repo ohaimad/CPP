@@ -22,7 +22,6 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other) {
 
 /*                  getters and setters           */
 
-
 void PmergeMe::set_vector_time(double vector_time){
     this->vector_time = vector_time;
 }
@@ -99,7 +98,8 @@ std::vector <int>fun(int a, int b){
     return v;
 }
 
-std::vector <int> jacobsthal_sequence(std::vector <int> v){
+std::vector <int> jacobsthal_sequence(std::vector <int> v)
+{
     std::vector <int> v1;
     std::vector <int> v2;
     std::vector <int> replica;
@@ -160,5 +160,25 @@ void PmergeMe::print_mainchain()
         std::cout << main_chain[i] << " ";
     std::cout << std::endl;
 }  
-
 /*                                              */
+
+void full_sort(std::vector<int> index, std::vector <int> value, PmergeMe &o)
+{
+    std::vector <int> main_chain = o.get_mainchain();
+    std::vector <int> ::iterator it;
+    std::vector <int> ::iterator min;
+    int ind;
+
+    for (size_t i = 0; i < index.size(); i++){
+        min = std::min_element(index.begin(), index.end());
+        ind = std::distance(index.begin(), min);
+        it = std::lower_bound(main_chain.begin(), main_chain.end(), value[ind]);
+        main_chain.insert(it, value[ind]);
+        index[ind] = INT_MAX;
+    }
+    if (o.get_odd()){
+        it = std::lower_bound(main_chain.begin(), main_chain.end(), o.get_straggler());
+        main_chain.insert(it, o.get_straggler());
+    }
+    o.set_mainchain(main_chain);
+}
