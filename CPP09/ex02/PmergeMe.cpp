@@ -24,7 +24,7 @@ const std::vector<int>& PmergeMe::getPend() const {
     return pend;
 }
 
-bool PmergeMe::isOdd() const {
+bool PmergeMe::getAdd() const {
     return odd;
 }
 
@@ -44,8 +44,8 @@ void PmergeMe::setPend(const std::vector<int>& pend) {
     this->pend = pend;
 }
 
-void PmergeMe::setOdd(bool isOdd) {
-    odd = isOdd;
+void PmergeMe::setAdd(bool isadd) {
+    odd = isadd;
 }
 
 void PmergeMe::setLast(int lastValue) {
@@ -57,7 +57,7 @@ void PmergeMe::setVecTime(double time) {
 }
 
 //  step 1    
-int PmergeMe::ft_sort(std::vector<std::pair<int, int> >& nbrs)
+int ft_sort(std::vector<std::pair<int, int> >& nbrs)
 {
     for (size_t i = 0; i + 1 < nbrs.size() ; i++)
     {
@@ -72,7 +72,7 @@ int PmergeMe::ft_sort(std::vector<std::pair<int, int> >& nbrs)
     return 1;
 }
 
-void PmergeMe::recursive_sort(std::vector<std::pair<int, int> >& vec)
+void recursive_sort(std::vector<std::pair<int, int> >& vec)
 {
     if (!ft_sort(vec))
     {
@@ -90,11 +90,10 @@ void PmergeMe::recursive_sort(std::vector<std::pair<int, int> >& vec)
 }
 
 // step 2 - 3
-std::vector <std::pair<int, int> > PmergeMe::cutting_2(std::vector<int> numbers)
+std::vector <std::pair<int, int> > cutting_2(std::vector<int> numbers)
 {
     std::vector <std::pair<int, int> > vector;
     std::pair<int, int> nb;
-
     for (size_t i = 0; i + 1 < numbers.size(); i += 2)
     {
         // 7 - 8
@@ -110,7 +109,7 @@ std::vector <std::pair<int, int> > PmergeMe::cutting_2(std::vector<int> numbers)
         }
         vector.push_back(nb);
     }
-    PmergeMe::recursive_sort(vector);
+    recursive_sort(vector);
     return vector;
 }
 
@@ -119,34 +118,31 @@ void PmergeMe::main_pend(PmergeMe &obj, std::vector < std::pair<int, int> > vect
 {
     std::vector <int > m_chain;
     std::vector <int > pend;
-    std::vector <std::pair<int, int> > vec_pair = vectore;
 
-    m_chain.push_back(vec_pair[0].second);
-    m_chain.push_back(vec_pair[0].first);
-    for(size_t i = 1; i < vec_pair.size(); i++)
+    m_chain.push_back(vectore[0].second);
+    for(size_t i = 0; i < vectore.size(); i++)
     {
-        m_chain.push_back(vec_pair[i].first);
-        pend.push_back(vec_pair[i].second);
+        m_chain.push_back(vectore[i].first);
+        pend.push_back(vectore[i].second);
     }
-    obj.setMainChain(m_chain);
     jacobsthal(m_chain, pend);
+    obj.setMainChain(m_chain);
 }
 
 //step 5
-void	jacobsthal(std::vector<int>& vec_pair, std::vector<int>& pend)
+void	jacobsthal(std::vector<int>& main_chaine, std::vector<int>& pend)
 {
 	int before;
-	int now = 0;
-	int after = 2;
-
-	while (vec_pair.size() != pend.size() * 2)
+	unsigned long now = 1;
+	int after = 3;
+	while (main_chaine.size() < (pend.size() * 2))
     {
-		for (size_t i = after; i > now ; i--)
+		for (unsigned long i = (after - 1); i > (now - 1)  ; i--)
         {
-			if (i <= pend.size())
+			if (i + 1 <= pend.size())
             {
-				std::vector<int>::iterator lower = std::lower_bound(vec_pair.begin(), vec_pair.end(), pend[i]);
-				vec_pair.insert(lower, pend[i]);
+				std::vector<int>::iterator lower = std::lower_bound(main_chaine.begin(), main_chaine.end(), pend[i]);
+				main_chaine.insert(lower , pend[i]);
 			}
 		}
 		before = now;
@@ -154,3 +150,11 @@ void	jacobsthal(std::vector<int>& vec_pair, std::vector<int>& pend)
 		after = now + (before * 2);
 	}
 }
+
+// print vector
+void PmergeMe::print_m_chain()
+{
+    for (size_t j = 0; j < main_chain.size(); j++)
+        std::cout << main_chain[j] << " ";
+    std::cout << std::endl;
+}  

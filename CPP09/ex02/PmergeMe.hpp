@@ -23,22 +23,24 @@ class PmergeMe {
         // Getters
         const std::vector<int>& getMainChain() const;
         const std::vector<int>& getPend() const;
-        bool isOdd() const;
+        bool getAdd() const;
         int getLast() const;
         double getVecTime() const;
 
         // Setters
         void setMainChain(const std::vector<int>& chain);
         void setPend(const std::vector<int>& chain);
-        void setOdd(bool isOdd);
+        void setAdd(bool isOdd);
         void setLast(int last);
         void setVecTime(double time);
 
         // fonctions
-        int PmergeMe::ft_sort(std::vector<std::pair<int, int> >& nbrs);
-        void PmergeMe::recursive_sort(std::vector<std::pair<int, int> >& vec);
-        std::vector <std::pair<int, int> > cutting_2(std::vector<int> numbers);
-        void PmergeMe::main_pend(PmergeMe &obj, std::vector < std::pair<int, int> > vectore);
+        void print_m_chain();
+        void main_pend(PmergeMe &obj, std::vector < std::pair<int, int> > vectore);
 };
 
+int ft_sort(std::vector<std::pair<int, int> >& nbrs);
+void recursive_sort(std::vector<std::pair<int, int> >& vec);
+std::vector <std::pair<int, int> > cutting_2(std::vector<int> numbers);
+void	jacobsthal(std::vector<int>& main_chaine, std::vector<int>& pend);
 #endif
