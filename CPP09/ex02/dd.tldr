@@ -66,9 +66,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 778.6849228012773,
-			"y": 328.75740349207734,
-			"lastActivityTimestamp": 1710912171453,
+			"x": 661.5675147938333,
+			"y": 379.7523342469604,
+			"lastActivityTimestamp": 1710913712926,
 			"meta": {}
 		},
 		{
@@ -106,7 +106,7 @@
 			"brush": null,
 			"scribbles": [],
 			"cursor": {
-				"type": "cross",
+				"type": "default",
 				"rotation": 0
 			},
 			"isFocusMode": false,
@@ -116,7 +116,7 @@
 			"screenBounds": {
 				"x": 0,
 				"y": 0,
-				"w": 829.1666259765625,
+				"w": 1125.833251953125,
 				"h": 777.5
 			},
 			"insets": [

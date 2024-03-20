@@ -4,7 +4,7 @@ int pars_1(std::string str)
 {
     for (int i = 1; str[i]; i++)
     {
-        if (!isdigit(str[i]))
+        if (!isdigit(str[i] || str[i] == '-'))
             return 0;
     }
     return 1;
@@ -33,9 +33,10 @@ int main (int ac, char **av)
     else
     {
         std::vector<int> vect;
-        if(args % 2 != 0){
+        if(args % 2 != 0)
             obj.setLast(std::atoi(av[args]));
-        }
+        else
+            obj.setLast(-1);
 
         for (size_t i = 1; av[i]; i++){
             vect.push_back(std::atoi(av[i]));
@@ -53,3 +54,4 @@ int main (int ac, char **av)
         obj.print_m_chain();
     }
 }
+

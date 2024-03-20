@@ -126,7 +126,14 @@ void PmergeMe::main_pend(PmergeMe &obj, std::vector < std::pair<int, int> > vect
         pend.push_back(vectore[i].second);
     }
     jacobsthal(m_chain, pend);
+    if (obj.getLast() != -1)
+    {
+       std::vector<int>::iterator lower = std::lower_bound(m_chain.begin(), m_chain.end(), obj.getLast());
+		m_chain.insert(lower , obj.getLast());
+    }
     obj.setMainChain(m_chain);
+        
+
 }
 
 //step 5
@@ -157,4 +164,4 @@ void PmergeMe::print_m_chain()
     for (size_t j = 0; j < main_chain.size(); j++)
         std::cout << main_chain[j] << " ";
     std::cout << std::endl;
-}  
+} 
