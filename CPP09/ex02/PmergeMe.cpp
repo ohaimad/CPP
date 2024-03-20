@@ -140,11 +140,11 @@ void PmergeMe::main_pend(PmergeMe &obj, std::vector < std::pair<int, int> > vect
 void	jacobsthal(std::vector<int>& main_chaine, std::vector<int>& pend)
 {
 	int before;
-	unsigned long now = 1;
+	size_t now = 1;
 	int after = 3;
 	while (main_chaine.size() < (pend.size() * 2))
     {
-		for (unsigned long i = (after - 1); i > (now - 1)  ; i--)
+		for (size_t i = (after - 1); i > (now - 1)  ; i--)
         {
 			if (i + 1 <= pend.size())
             {
