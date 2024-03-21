@@ -6,7 +6,7 @@
 /*   By: ohaimad <ohaimad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 11:12:02 by ohaimad           #+#    #+#             */
-/*   Updated: 2024/03/13 14:30:03 by ohaimad          ###   ########.fr       */
+/*   Updated: 2024/03/21 02:20:06 by ohaimad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int ac, char* av[])
 
     std::string expression = av[1];
     int result = evaluate(expression);
-    if (result != 0)
+
         std::cout << result << std::endl;
 
     return 0;
