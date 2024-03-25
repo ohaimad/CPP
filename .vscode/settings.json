@@ -68,6 +68,7 @@
         "__tree": "cpp",
         "map": "cpp",
         "__memory": "cpp",
-        "*.tpp": "cpp"
+        "*.tpp": "cpp",
+        "codecvt": "cpp"
     }
 }
