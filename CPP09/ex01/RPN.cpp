@@ -22,7 +22,7 @@ int operation(int operand1, int operand2, const std::string& op)
         return operand1 / operand2;
     }
     else
-        exit(0); // Invalid operation
+        exit(0);
 }
 
 int evaluate(const std::string& expression) 

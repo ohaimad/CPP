@@ -32,7 +32,6 @@ int count_points(std::string value)
 
 bool pars_value(std::string value)
 {
-    std::cout << "value: " << value << std::endl;
     if(value[0] != ' ')
     {
         std::cerr << "Error: bad value => " << value << std::endl;
@@ -87,7 +86,13 @@ void BitcoinExchange::processInputFile(const std::string& inputFile)
             if (isValidDate(date))
             {
                 std::string closestDate = getClosestDate(date);
-                exchangeRate = exchangeRates[closestDate];
+                if (closestDate == "Error")
+                {
+                    std::cout << "Error: no data available." << std::endl;
+                    continue;
+                }
+                else
+                    exchangeRate = exchangeRates[closestDate];
             }
             else
             {
@@ -97,16 +102,14 @@ void BitcoinExchange::processInputFile(const std::string& inputFile)
         }
         if (std::getline(iss, value) && pars_value(value))
         {
-            std::cout << "value: " << value << std::endl;
             float value_f;
             std::istringstream(value) >> value_f;
-            std::cout << "value_f: " << value_f << std::endl;
             if(!isValidValue(value_f))
                 continue;
             else
             {
                 float result = value_f * exchangeRate;
-                std::cout << date << " => " << value_f << " = " << result << std::endl;
+                std::cout << date << "=> " << value_f << " = " << result << std::endl;
             }
         }
     }
@@ -115,7 +118,6 @@ void BitcoinExchange::processInputFile(const std::string& inputFile)
 
 bool BitcoinExchange::isValidDate(const std::string& date) const 
 {
-    std::cout << "datesize: " << date.size() << std::endl;
     int year = (date[0] - '0') * 1000 + (date[1] - '0') * 100 + (date[2] - '0') * 10 + (date[3] - '0');
     int month = (date[5] - '0') * 10 + (date[6] - '0');
     int day = (date[8] - '0') * 10 + (date[9] - '0');
@@ -170,22 +172,20 @@ bool BitcoinExchange::isValidValue(float value) const
 
 std::string BitcoinExchange::getClosestDate(const std::string& date) const
 {
-        std::map<std::string, float>::const_iterator it = exchangeRates.lower_bound(date);
-        if (it == exchangeRates.begin())
-        {
-                std::cout<< "it->first: " << it->first << std::endl;
-                return it->first;
-        }
-        else if (it == exchangeRates.end())
-        {
-            std::map<std::string, float>::const_iterator temp = it;
-            temp--;
-            return temp->first;
-        }
-        else
-        {
-            it--;
-            return it->first;
-        }
-    return "";
+    std::map<std::string, float>::const_iterator it = exchangeRates.lower_bound(date);
+
+    if (it == exchangeRates.begin())
+            return "Error";
+    else if (it == exchangeRates.end())
+    {
+        std::map<std::string, float>::const_iterator temp = it;
+        temp--;
+        return temp->first;
+    }
+    else
+    {
+        it--;
+        return it->first;
+    }
+    return "Error";
 }
