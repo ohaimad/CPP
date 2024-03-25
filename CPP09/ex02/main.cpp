@@ -30,17 +30,20 @@ void vectore_way(char **av, PmergeMe &obj, int args)
     for (size_t i = 1; av[i]; i++){
         vect.push_back(std::atoi(av[i]));
     }
+    std::cout << "Before: ";
+    for(size_t i = 0; i < vect.size(); i++)
+        std::cout << vect[i] << " ";
+    std::cout << std::endl;
     std::vector<std::pair<int, int> > vec = cutting_2(vect);
     clock_t starTime = clock();
     obj.main_pend(obj, vec);
-    std::cout << "Before: ";
     clock_t endTime = clock();
     double duration = static_cast<double>(endTime - starTime) / CLOCKS_PER_SEC * 1000000;
     obj.setVecTime(duration);
     std::cout << "After: ";
+    obj.print_m_chain();
     std::cout << "Time to process a range of " << args << " elements with : "
               << "std::vector :" << obj.getVecTime() << std::endl;
-    obj.print_m_chain();
 }
 
 void    deque_way(char **av, PmergeMe &obj, int args)
@@ -55,18 +58,20 @@ void    deque_way(char **av, PmergeMe &obj, int args)
     for (size_t i = 1; av[i]; i++){
         deq.push_back(std::atoi(av[i]));
     }
-
+    std::cout << "Before: ";
+    for(size_t i = 0; i < deq.size(); i++)
+        std::cout << deq[i] << " ";
+    std::cout << std::endl;
     std::deque<std::pair<int, int> > dequ = cutting_2(deq);
     clock_t starTime = clock();
     obj.main_pend(obj, dequ);
-    std::cout << "Before: ";
     clock_t endTime = clock();
     double duration = static_cast<double>(endTime - starTime) / CLOCKS_PER_SEC * 1000000;
     obj.setDequeTime(duration);
     std::cout << "After: ";
+    obj.print_m_chain();
     std::cout << "Time to process a range of " << args << " elements with : "
               << "std::deque :" << obj.getDequeTime() << std::endl;
-    obj.print_m_chain();
 }
 
 int main (int ac, char **av)
@@ -82,6 +87,7 @@ int main (int ac, char **av)
     else
     {
         vectore_way(av, obj, args);
+        std::cout << std::endl;
         deque_way(av, obj, args);
     }
 }

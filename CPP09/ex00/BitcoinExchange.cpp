@@ -1,29 +1,38 @@
 #include "BitcoinExchange.hpp"
 
-
 BitcoinExchange::BitcoinExchange()
+{}
+
+int count_points(std::string value)
 {
-    const std::string databaseFilePath = "data.csv";
-    std::ifstream file(databaseFilePath);
-    if (!file)
+    int count = 0;
+    for(size_t i = 0; i < value.size(); i++)
     {
-        std::cerr << "Error: could not open file." << std::endl;
-        return;
+        if(value[i] == '.')
+            count++;
     }
+    return count;
+}
 
-    std::string line;
-    std::getline(file, line);
-
-    while (std::getline(file, line))
+bool pars_value(std::string value)
+{
+    for(size_t i = 0; i < value.size(); i++)
     {
-        std::istringstream iss(line);
-        std::string date;
-        float value;
-
-        if (std::getline(iss, date, ',') && iss >> value)
-                exchangeRates[date] = value;
+        if(count_points(value) > 1)
+        {
+            std::cerr << "Error: bad value => " << value << std::endl;
+            return false;
+        }
+        if (value[i] == '.')
+        {
+            if(i == 0 || i == value.size() - 1)
+            {
+                std::cerr << "Error: bad value => " << value << std::endl;
+                return false;
+            }
+        }
     }
-    file.close();
+    return true;
 }
 
 void BitcoinExchange::processInputFile(const std::string& inputFile)
@@ -36,52 +45,106 @@ void BitcoinExchange::processInputFile(const std::string& inputFile)
     }
 
     std::string line;
+    std::string line_trime;
     std::getline(file, line);
     if (line != "date | value")
     {
         std::cerr << "Error: bad input => " << line << std::endl;
         return;
     }
-
     while (std::getline(file, line))
     {
         std::istringstream iss(line);
         std::string date;
-        float value;
+        std::string value;
+        float exchangeRate;
 
-        if (std::getline(iss, date, '|') && iss >> value)
+        if (std::getline(iss, date, ' '))
         {
-            if (isValidDate(date) && isValidValue(value))
+            std::cout << "date: " << date << std::endl;
+            if (isValidDate(date))
             {
                 std::string closestDate = getClosestDate(date);
-                float exchangeRate = exchangeRates[closestDate];
-
-                float result = value * exchangeRate;
-                std::cout << date << " => " << value << " = " << result << std::endl;
+                exchangeRate = exchangeRates[closestDate];
+            }
+            else
+            {
+                std::cerr << "Error: bad date => " << date << std::endl;
+                return;
             }
         }
-        else
-            std::cerr << "Error: bad input => " << line << std::endl;
+        if (std::getline(iss, value) && pars_value(value))
+        {
+            float value_f;
+            std::istringstream(value) >> value_f;
+            std::cout << "value: " << value_f << std::endl;
+            
+            if(!isValidValue(value_f))
+                std::cerr << "Error: bad value_f => " << value_f << std::endl;
+            else
+            {
+                float result = value_f * exchangeRate;
+                std::cout << date << " => " << value_f << " = " << result << std::endl;
+            }
+        }
+        file.close();
     }
-    file.close();
 }
 
-bool BitcoinExchange::isValidDate(const std::string& date) const
+bool BitcoinExchange::isValidDate(const std::string& date) const 
 {
-    if (date.size() != 11)
+    std::cout << "date size : " << date.size() << std::endl;
+    int year = (date[0] - '0') * 1000 + (date[1] - '0') * 100 + (date[2] - '0') * 10 + (date[3] - '0');
+    int month = (date[5] - '0') * 10 + (date[6] - '0');
+    int day = (date[8] - '0') * 10 + (date[9] - '0');
+
+    if (date.size() != 10) {
+        puts("Date size is incorrect.");
         return false;
+    }
     if (!std::isdigit(date[0]) || !std::isdigit(date[1]) ||
         !std::isdigit(date[2]) || !std::isdigit(date[3]) ||
-        date[4] != '-' ||
-        !std::isdigit(date[5]) || !std::isdigit(date[6]) ||
-        date[7] != '-' ||
-        !std::isdigit(date[8]) || !std::isdigit(date[9]) || date[10] != ' ')
+        date[4] != '-' || !std::isdigit(date[5]) || 
+        !std::isdigit(date[6]) || date[7] != '-' || !std::isdigit(date[8]) || !std::isdigit(date[9]))
     {
+        puts("Date format is incorrect.");
         return false;
     }
 
+    if (month < 1 || month > 12) {
+        puts("Month is out of range.");
+        return false;
+    }
+    if (day < 1 || day > 31) {
+        puts("Day is out of range.");
+        return false;
+    }
+    if (month == 2) 
+    {
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) 
+        {
+            if (day > 29) 
+            {
+                puts("Day is out of range for February (leap year).");
+                return false;
+            }
+        } 
+        else 
+        {
+            if (day > 28) 
+            {
+                puts("Day is out of range for February.");
+                return false;
+            }
+        }
+    } 
+    else if ((month == 4 || month == 6 || month == 9 || month == 11) && day > 30) {
+        puts("Day is out of range for this month.");
+        return false;
+    }
     return true;
 }
+
 
 bool BitcoinExchange::isValidValue(float value) const
 {
@@ -114,6 +177,5 @@ std::string BitcoinExchange::getClosestDate(const std::string& date) const
             --it;
             return it->first; 
         }
-
-
+    return "";
 }
